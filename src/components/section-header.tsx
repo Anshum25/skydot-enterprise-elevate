@@ -21,17 +21,17 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "max-w-3xl",
+        "max-w-2xl",
         align === "center" && "mx-auto text-center",
         className,
       )}
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="mt-3 text-3xl md:text-4xl lg:text-[42px] font-bold leading-[1.1] tracking-tight">
+      <h2 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight text-heading">
         {title}
       </h2>
       {description && (
-        <p className="mt-5 text-base md:text-lg leading-relaxed text-paragraph">
+        <p className="mt-4 text-base md:text-lg leading-relaxed text-paragraph max-w-2xl">
           {description}
         </p>
       )}

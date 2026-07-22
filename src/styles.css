@@ -6,7 +6,7 @@
 
 @theme inline {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
   --radius-sm: calc(var(--radius) - 4px);
@@ -40,76 +40,76 @@
   --color-heading: var(--heading);
   --color-paragraph: var(--paragraph);
 
-  --shadow-soft: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 1px 3px 0 rgb(15 23 42 / 0.06);
-  --shadow-elevated: 0 10px 30px -12px rgb(15 23 42 / 0.15), 0 4px 12px -4px rgb(15 23 42 / 0.08);
-  --shadow-card: 0 1px 2px 0 rgb(15 23 42 / 0.04), 0 8px 24px -12px rgb(15 23 42 / 0.10);
+  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.06);
+  --shadow-elevated: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 8px -2px rgb(0 0 0 / 0.04);
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px 0 rgb(0 0 0 / 0.02);
 }
 
 :root {
   --radius: 0.75rem;
 
-  /* Light mode — enterprise blue */
+  /* Light mode — SKYDOT INFOTECH professional theme */
   --background: #FFFFFF;
   --surface: #F8FAFC;
   --surface-alt: #F1F5F9;
-  --foreground: #0F172A;
-  --heading: #0F172A;
-  --paragraph: #475569;
+  --foreground: #1A1A1A;
+  --heading: #111111;
+  --paragraph: #4A4A4A;
 
   --card: #FFFFFF;
-  --card-foreground: #0F172A;
+  --card-foreground: #1A1A1A;
   --popover: #FFFFFF;
-  --popover-foreground: #0F172A;
+  --popover-foreground: #1A1A1A;
 
-  --primary: #2563EB;
+  --primary: #FF6B35;
   --primary-foreground: #FFFFFF;
-  --accent-brand: #0EA5E9;
+  --accent-brand: #FF8C5A;
 
-  --secondary: #F1F5F9;
-  --secondary-foreground: #0F172A;
+  --secondary: #F8FAFC;
+  --secondary-foreground: #1A1A1A;
   --muted: #F1F5F9;
-  --muted-foreground: #64748B;
-  --accent: #EFF6FF;
-  --accent-foreground: #1E40AF;
+  --muted-foreground: #6B7280;
+  --accent: #FFF5EE;
+  --accent-foreground: #FF6B35;
 
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
 
-  --border: #E2E8F0;
-  --input: #E2E8F0;
-  --ring: #2563EB;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #FF6B35;
 }
 
 .dark {
-  --background: #020617;
-  --surface: #0B1220;
-  --surface-alt: #111827;
-  --foreground: #F8FAFC;
-  --heading: #F8FAFC;
-  --paragraph: #CBD5E1;
+  --background: #111111;
+  --surface: #1A1A1A;
+  --surface-alt: #252525;
+  --foreground: #F5F5F5;
+  --heading: #FFFFFF;
+  --paragraph: #A0A0A0;
 
-  --card: #0F172A;
-  --card-foreground: #F8FAFC;
-  --popover: #0F172A;
-  --popover-foreground: #F8FAFC;
+  --card: #1A1A1A;
+  --card-foreground: #F5F5F5;
+  --popover: #1A1A1A;
+  --popover-foreground: #F5F5F5;
 
-  --primary: #3B82F6;
-  --primary-foreground: #0B1220;
-  --accent-brand: #38BDF8;
+  --primary: #FF8C5A;
+  --primary-foreground: #111111;
+  --accent-brand: #FFA573;
 
-  --secondary: #111827;
-  --secondary-foreground: #F8FAFC;
-  --muted: #111827;
-  --muted-foreground: #94A3B8;
-  --accent: #1E293B;
-  --accent-foreground: #E0F2FE;
+  --secondary: #252525;
+  --secondary-foreground: #F5F5F5;
+  --muted: #1A1A1A;
+  --muted-foreground: #808080;
+  --accent: #2D2D2D;
+  --accent-foreground: #FF8C5A;
 
   --destructive: #EF4444;
-  --destructive-foreground: #F8FAFC;
+  --destructive-foreground: #F5F5F5;
 
-  --border: #1E293B;
-  --input: #1E293B;
-  --ring: #3B82F6;
+  --border: #333333;
+  --input: #333333;
+  --ring: #FF8C5A;
 }
 
 @layer base {
@@ -149,17 +149,17 @@
 @utility container-page {
   width: 100%;
   margin-inline: auto;
-  padding-inline: 1.25rem;
-  max-width: 80rem;
+  padding-inline: 1.5rem;
+  max-width: 1320px;
   @media (min-width: 768px) {
     padding-inline: 2rem;
   }
 }
 
 @utility section-y {
-  padding-block: 5rem;
+  padding-block: 6rem;
   @media (min-width: 768px) {
-    padding-block: 7rem;
+    padding-block: 8rem;
   }
 }
 
@@ -181,11 +181,11 @@
 }
 
 @utility card-hover {
-  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
   &:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-elevated);
-    border-color: color-mix(in oklab, var(--color-primary) 30%, var(--color-border));
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+    border-color: color-mix(in oklab, var(--color-primary) 15%, var(--color-border));
   }
 }
 
@@ -202,6 +202,16 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -211,6 +221,58 @@
   animation: fade-up 0.6s ease-out both;
 }
 
+@utility animate-fade-in {
+  animation: fade-in 0.4s ease-out both;
+}
+
+@utility animate-slide-up {
+  animation: slide-up 0.5s ease-out both;
+}
+
 @utility animate-marquee {
   animation: marquee 40s linear infinite;
+}
+
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  border: 1px solid transparent;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-primary) 90%, black);
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+  &:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-1px);
+  }
+  &:active {
+    transform: translateY(0);
+  }
 }

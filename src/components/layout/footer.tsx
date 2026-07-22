@@ -52,17 +52,13 @@ export function Footer() {
       <div className="container-page py-16">
         <div className="grid gap-12 lg:grid-cols-[1.3fr_2fr]">
           <div>
-            <div className="flex items-center gap-2.5">
-              <div className="grid size-10 place-items-center rounded-lg bg-primary text-primary-foreground font-display font-bold">
-                S
-              </div>
-              <div className="leading-tight">
-                <div className="font-display font-bold text-lg text-heading">Skydot Infotech</div>
-                <div className="text-[10px] font-medium uppercase tracking-[0.15em] text-muted-foreground">
-                  Enterprise Moodle & AI Solutions
-                </div>
-              </div>
-            </div>
+            <Link to="/" aria-label="Skydot Infotech home" className="inline-flex">
+              <img
+                src="/Untitled.jpeg"
+                alt="Skydot Infotech"
+                className="h-14 w-auto max-w-[220px] object-contain"
+              />
+            </Link>
             <p className="mt-5 max-w-md text-sm leading-relaxed">
               We build enterprise learning ecosystems for universities, governments and Fortune-class
               organizations — combining Moodle expertise, custom platform engineering and applied AI.

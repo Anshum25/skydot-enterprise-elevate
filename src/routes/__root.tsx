@@ -12,33 +12,29 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Navbar } from "@/components/layout/navbar";
+import { Header } from "@/components/header";
 import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
   return (
-    <>
-      <Navbar />
-      <div className="flex min-h-[70vh] items-center justify-center bg-background px-4">
-        <div className="max-w-md text-center">
-          <div className="eyebrow justify-center">Error 404</div>
-          <h1 className="mt-4 text-5xl font-bold text-heading">Page not found</h1>
-          <p className="mt-4 text-paragraph">
-            The page you're looking for doesn't exist or has been moved.
-          </p>
-          <div className="mt-8">
-            <Link
-              to="/"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft hover:opacity-90"
-            >
-              Go home
-            </Link>
-          </div>
+    <div className="flex min-h-[70vh] items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <div className="eyebrow justify-center">Error 404</div>
+        <h1 className="mt-4 text-5xl font-bold text-heading">Page not found</h1>
+        <p className="mt-4 text-paragraph">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div className="mt-8">
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-soft hover:opacity-90"
+          >
+            Go home
+          </Link>
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 }
 
@@ -92,12 +88,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/Untitled.jpeg", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap",
       },
     ],
   }),
@@ -127,7 +123,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
-        <Navbar />
+        <Header />
         <main>
           <Outlet />
         </main>

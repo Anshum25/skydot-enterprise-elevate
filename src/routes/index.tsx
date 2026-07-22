@@ -22,11 +22,25 @@ import {
   Globe,
   Play,
   ChevronRight,
+  Target,
+  Eye,
+  GitBranch,
+  Handshake,
+  Code2,
+  ClipboardCheck,
+  MonitorCheck,
+  Plug,
+  Gauge,
+  Headphones,
+  Network,
+  Layers3,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeader, Eyebrow } from "@/components/section-header";
+import { Hero } from "@/components/hero";
+import { TrustBar } from "@/components/trust-bar";
 import {
   Accordion,
   AccordionContent,
@@ -73,6 +87,80 @@ const STATS = [
   { value: "12M+", label: "Learners served globally" },
   { value: "99.99%", label: "Platform uptime SLA" },
   { value: "28", label: "Countries delivered in" },
+];
+
+const CORE_VALUES = [
+  {
+    icon: GitBranch,
+    title: "Open Source First",
+    desc: "Build on Moodle standards instead of unnecessary custom forks.",
+  },
+  {
+    icon: Shield,
+    title: "Security & Reliability",
+    desc: "Enterprise-grade security, scalability and stability.",
+  },
+  {
+    icon: Handshake,
+    title: "Long-Term Partnership",
+    desc: "Focus on continuous improvement rather than one-time projects.",
+  },
+  {
+    icon: Code2,
+    title: "Engineering Excellence",
+    desc: "Clean architecture, maintainable solutions and modern technologies.",
+  },
+];
+
+const CHOOSE_SKYDOT = [
+  {
+    icon: Award,
+    title: "Enterprise Moodle Expertise",
+    desc: "Certified implementation approach for complex Moodle and Moodle Workplace environments.",
+  },
+  {
+    icon: Code2,
+    title: "Custom Plugin Development",
+    desc: "Tailor Moodle to business requirements without compromising upgrade paths.",
+  },
+  {
+    icon: Cloud,
+    title: "Managed Cloud Hosting",
+    desc: "Secure and scalable deployments across public, private and hybrid infrastructure.",
+  },
+  {
+    icon: Sparkles,
+    title: "AI-Powered Learning",
+    desc: "Modern intelligent learning experiences grounded in platform content and governance.",
+  },
+  {
+    icon: MonitorCheck,
+    title: "CBT Platform Development",
+    desc: "Secure online examination systems built for reliability, scale and exam control.",
+  },
+  {
+    icon: Plug,
+    title: "System Integration",
+    desc: "ERP, CRM, HRMS, SSO and API integrations designed around real workflows.",
+  },
+  {
+    icon: Gauge,
+    title: "Performance Optimization",
+    desc: "High-speed Moodle environments with caching, tuning and observability.",
+  },
+  {
+    icon: Headphones,
+    title: "Long-Term Support",
+    desc: "Maintenance, upgrades and monitoring from a team that understands the platform.",
+  },
+];
+
+const HIGHLIGHTS = [
+  "Enterprise Architecture",
+  "Secure Infrastructure",
+  "Scalable Solutions",
+  "Open Source Experts",
+  "Modern Technology Stack",
 ];
 
 const SERVICES = [
@@ -219,118 +307,143 @@ function HomePage() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative overflow-hidden hero-gradient">
-        <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
-        <div className="container-page relative pt-20 pb-24 md:pt-28 md:pb-32">
-          <div className="mx-auto max-w-4xl text-center">
-            <Badge variant="outline" className="rounded-full bg-background/70 backdrop-blur border-border py-1.5 px-3">
-              <span className="mr-2 inline-block size-1.5 rounded-full bg-primary" />
-              <span className="text-xs font-medium">Trusted by 400+ enterprises across 28 countries</span>
-            </Badge>
-            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.03] tracking-tight">
-              Enterprise learning platforms,{" "}
-              <span className="text-primary">engineered for outcomes.</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-paragraph">
-              Skydot Infotech builds and operates Moodle, CBT and AI-powered learning ecosystems for
-              universities, governments and Fortune-scale enterprises — with the compliance, scale
-              and craft your organization demands.
-            </p>
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <Button asChild size="lg" className="shadow-soft">
-                <Link to="/contact">
-                  Book an executive demo <ArrowRight className="ml-2 size-4" />
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link to="/case-studies">
-                  <Play className="mr-2 size-4" /> See customer stories
-                </Link>
-              </Button>
-            </div>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="size-4 text-primary" /> ISO 27001 aligned</span>
-              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="size-4 text-primary" /> GDPR & DPDP compliant</span>
-              <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="size-4 text-primary" /> 24×7 managed services</span>
-            </div>
-          </div>
+      <Hero />
 
-          {/* Dashboard mockup */}
-          <div className="mt-16 md:mt-20 mx-auto max-w-6xl">
-            <div className="relative rounded-2xl border border-border bg-card p-2 shadow-elevated">
-              <div className="rounded-xl overflow-hidden border border-border bg-surface">
-                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-border bg-background">
-                  <div className="flex gap-1.5">
-                    <span className="size-2.5 rounded-full bg-muted-foreground/30" />
-                    <span className="size-2.5 rounded-full bg-muted-foreground/30" />
-                    <span className="size-2.5 rounded-full bg-muted-foreground/30" />
+      {/* TRUST BAR */}
+      <TrustBar />
+
+      {/* COMPANY INTRODUCTION */}
+      <section className="section-y bg-background">
+        <div className="container-page">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-14 xl:gap-20 items-center">
+            <div>
+              <SectionHeader
+                eyebrow="Who We Are"
+                title="A Trusted Technology Partner for Enterprise Learning Solutions"
+                description="Skydot Infotech specializes in designing, implementing, customizing and managing enterprise Moodle platforms for organizations that need scalable, secure and future-ready learning environments. Our work combines Moodle expertise, learning technology, open source engineering, CBT platforms, AI learning, managed services and digital transformation into practical systems teams can run with confidence."
+              />
+
+              <div className="mt-10 grid sm:grid-cols-2 gap-5">
+                <Card className="p-6 border-border bg-card">
+                  <div className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <Target className="size-5" />
                   </div>
-                  <div className="ml-3 text-xs font-mono text-muted-foreground">skydot.cloud / learning-console</div>
+                  <h3 className="mt-5 font-display font-semibold text-lg text-heading">Mission</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-paragraph">
+                    Helping organizations build reliable digital learning ecosystems through enterprise-grade Moodle solutions.
+                  </p>
+                </Card>
+                <Card className="p-6 border-border bg-card">
+                  <div className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <Eye className="size-5" />
+                  </div>
+                  <h3 className="mt-5 font-display font-semibold text-lg text-heading">Vision</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-paragraph">
+                    To become a trusted global technology partner for modern learning platforms and digital education transformation.
+                  </p>
+                </Card>
+              </div>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-lg border border-border bg-card p-5 shadow-elevated">
+                <div className="flex items-center justify-between border-b border-border pb-4">
+                  <div>
+                    <div className="font-display text-sm font-semibold text-heading">Enterprise Learning Platform</div>
+                    <div className="mt-1 text-xs text-muted-foreground">Moodle architecture overview</div>
+                  </div>
+                  <div className="flex gap-1.5">
+                    <span className="size-2 rounded-full bg-primary/70" />
+                    <span className="size-2 rounded-full bg-muted-foreground/30" />
+                    <span className="size-2 rounded-full bg-muted-foreground/30" />
+                  </div>
                 </div>
-                <div className="grid md:grid-cols-[220px_1fr] min-h-[380px]">
-                  <div className="hidden md:block border-r border-border bg-background p-4 space-y-1">
-                    {["Overview", "Programs", "Learners", "Assessments", "Analytics", "Compliance", "Integrations", "Settings"].map((s, i) => (
-                      <div key={s} className={`px-3 py-2 rounded-md text-xs font-medium ${i === 0 ? "bg-primary/10 text-primary" : "text-paragraph"}`}>{s}</div>
+
+                <div className="mt-6 grid gap-4">
+                  <div className="rounded-lg border border-border bg-surface p-4">
+                    <div className="flex items-center gap-3">
+                      <div className="grid size-10 place-items-center rounded-md bg-primary/10 text-primary">
+                        <BookOpen className="size-5" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-heading">Moodle LMS Core</div>
+                        <div className="text-xs text-muted-foreground">Courses, roles, cohorts, reporting</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {[
+                      { icon: Network, title: "Integrations", text: "SSO, ERP, HRMS" },
+                      { icon: Layers3, title: "Custom Layer", text: "Plugins and workflows" },
+                      { icon: Lock, title: "Security", text: "Access, audit, compliance" },
+                      { icon: BarChart3, title: "Analytics", text: "Dashboards and insights" },
+                    ].map((item) => (
+                      <div key={item.title} className="rounded-lg border border-border bg-background p-4">
+                        <item.icon className="size-5 text-primary" />
+                        <div className="mt-3 text-sm font-semibold text-heading">{item.title}</div>
+                        <div className="mt-1 text-xs text-muted-foreground">{item.text}</div>
+                      </div>
                     ))}
                   </div>
-                  <div className="p-5 md:p-6">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-xs uppercase tracking-widest text-muted-foreground">Learning Console</div>
-                        <div className="mt-1 font-display font-bold text-lg text-heading">Q4 Programme Overview</div>
-                      </div>
-                      <div className="hidden sm:flex items-center gap-2">
-                        <Badge variant="outline" className="rounded-full">Live</Badge>
-                        <Badge className="rounded-full bg-primary/10 text-primary hover:bg-primary/10">All regions</Badge>
-                      </div>
-                    </div>
-                    <div className="mt-5 grid grid-cols-2 lg:grid-cols-4 gap-3">
-                      {[
-                        ["Active learners", "1,284,902", "+12.4%"],
-                        ["Course completion", "87.3%", "+3.1%"],
-                        ["Assessments run", "42,918", "+8.7%"],
-                        ["Avg. NPS", "72", "+4"],
-                      ].map(([label, val, delta]) => (
-                        <div key={label} className="rounded-lg border border-border bg-card p-4">
-                          <div className="text-[11px] uppercase tracking-wide text-muted-foreground">{label}</div>
-                          <div className="mt-2 font-mono text-xl font-semibold text-heading">{val}</div>
-                          <div className="mt-1 text-[11px] text-primary font-medium">{delta}</div>
-                        </div>
+
+                  <div className="rounded-lg border border-border bg-background p-4">
+                    <div className="flex flex-wrap gap-2">
+                      {["CBT", "AI Learning", "Managed Cloud", "Support"].map((tag) => (
+                        <span key={tag} className="rounded-md border border-border bg-surface px-3 py-1.5 text-xs font-medium text-heading">
+                          {tag}
+                        </span>
                       ))}
-                    </div>
-                    <div className="mt-4 rounded-lg border border-border bg-card p-4 h-48 relative overflow-hidden">
-                      <div className="text-[11px] uppercase tracking-wide text-muted-foreground mb-3">Engagement · last 30 days</div>
-                      <svg viewBox="0 0 400 120" className="w-full h-32">
-                        <defs>
-                          <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-                            <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.35" />
-                            <stop offset="100%" stopColor="var(--color-primary)" stopOpacity="0" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M0,90 C40,70 60,80 90,60 C130,35 160,55 200,45 C240,35 270,55 300,40 C340,20 370,30 400,20 L400,120 L0,120 Z" fill="url(#g1)" />
-                        <path d="M0,90 C40,70 60,80 90,60 C130,35 160,55 200,45 C240,35 270,55 300,40 C340,20 370,30 400,20" fill="none" stroke="var(--color-primary)" strokeWidth="2" />
-                      </svg>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {CORE_VALUES.map((value) => (
+              <Card key={value.title} className="p-6 border-border bg-card">
+                <div className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <value.icon className="size-5" />
+                </div>
+                <h3 className="mt-5 font-display font-semibold text-heading">{value.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-paragraph">{value.desc}</p>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* TRUSTED */}
-      <section className="border-y border-border bg-surface">
-        <div className="container-page py-10">
-          <div className="text-center text-xs uppercase tracking-[0.15em] font-semibold text-muted-foreground">
-            Powering learning at leading organizations
+      {/* WHY CHOOSE SKYDOT */}
+      <section className="section-y bg-surface border-y border-border">
+        <div className="container-page">
+          <SectionHeader
+            eyebrow="Why Choose Skydot"
+            title="Why Organizations Choose Skydot"
+            description="Successful Moodle implementations require more than installation. They require architecture, customization, integration, security and long-term support from a team that understands how learning platforms behave in production."
+            align="center"
+          />
+
+          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+            {CHOOSE_SKYDOT.map((feature) => (
+              <Card key={feature.title} className="p-6 border-border bg-card">
+                <div className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <feature.icon className="size-5" />
+                </div>
+                <h3 className="mt-5 font-display font-semibold text-heading">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-paragraph">{feature.desc}</p>
+              </Card>
+            ))}
           </div>
-          <div className="mt-6 overflow-hidden">
-            <div className="flex gap-14 animate-marquee whitespace-nowrap">
-              {[...TRUST_LOGOS, ...TRUST_LOGOS].map((n, i) => (
-                <span key={i} className="font-display font-semibold text-lg text-muted-foreground/70 hover:text-heading transition">
-                  {n}
-                </span>
+
+          <div className="mt-10 rounded-lg border border-border bg-background px-5 py-4">
+            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+              {HIGHLIGHTS.map((highlight) => (
+                <div key={highlight} className="inline-flex items-center gap-2 text-sm font-medium text-heading">
+                  <CheckCircle2 className="size-4 text-primary" />
+                  {highlight}
+                </div>
               ))}
             </div>
           </div>
