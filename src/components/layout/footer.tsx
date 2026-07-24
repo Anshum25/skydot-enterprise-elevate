@@ -56,7 +56,7 @@ export function Footer() {
               <img
                 src="/Untitled.jpeg"
                 alt="Skydot Infotech"
-                className="h-14 w-auto max-w-[220px] object-contain"
+                className="h-14 w-auto max-w-[220px] object-contain mix-blend-multiply dark:invert dark:mix-blend-screen"
               />
             </Link>
             <p className="mt-5 max-w-md text-sm leading-relaxed">

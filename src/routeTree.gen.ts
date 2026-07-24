@@ -21,6 +21,9 @@ import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as MoodleDevelopmentRouteImport } from './routes/moodle-development'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TrustRouteImport } from './routes/trust'
+import { Route as AboutProcessRouteImport } from './routes/about.process'
+import { Route as AboutTechnologyRouteImport } from './routes/about.technology'
 import { Route as ServicesAiLearningRouteImport } from './routes/services.ai-learning'
 
 const IndexRoute = IndexRouteImport.update({
@@ -83,6 +86,21 @@ const SolutionsRoute = SolutionsRouteImport.update({
   path: '/solutions',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrustRoute = TrustRouteImport.update({
+  id: '/trust',
+  path: '/trust',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutProcessRoute = AboutProcessRouteImport.update({
+  id: '/process',
+  path: '/process',
+  getParentRoute: () => AboutRoute,
+} as any)
+const AboutTechnologyRoute = AboutTechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => AboutRoute,
+} as any)
 const ServicesAiLearningRoute = ServicesAiLearningRouteImport.update({
   id: '/ai-learning',
   path: '/ai-learning',
@@ -91,7 +109,7 @@ const ServicesAiLearningRoute = ServicesAiLearningRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/ai-services': typeof AiServicesRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
@@ -102,11 +120,14 @@ export interface FileRoutesByFullPath {
   '/moodle-development': typeof MoodleDevelopmentRoute
   '/services': typeof ServicesRouteWithChildren
   '/solutions': typeof SolutionsRoute
+  '/trust': typeof TrustRoute
+  '/about/process': typeof AboutProcessRoute
+  '/about/technology': typeof AboutTechnologyRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/ai-services': typeof AiServicesRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
@@ -117,12 +138,15 @@ export interface FileRoutesByTo {
   '/moodle-development': typeof MoodleDevelopmentRoute
   '/services': typeof ServicesRouteWithChildren
   '/solutions': typeof SolutionsRoute
+  '/trust': typeof TrustRoute
+  '/about/process': typeof AboutProcessRoute
+  '/about/technology': typeof AboutTechnologyRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/ai-services': typeof AiServicesRoute
   '/blog': typeof BlogRoute
   '/careers': typeof CareersRoute
@@ -133,6 +157,9 @@ export interface FileRoutesById {
   '/moodle-development': typeof MoodleDevelopmentRoute
   '/services': typeof ServicesRouteWithChildren
   '/solutions': typeof SolutionsRoute
+  '/trust': typeof TrustRoute
+  '/about/process': typeof AboutProcessRoute
+  '/about/technology': typeof AboutTechnologyRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
 }
 export interface FileRouteTypes {
@@ -150,6 +177,9 @@ export interface FileRouteTypes {
     | '/moodle-development'
     | '/services'
     | '/solutions'
+    | '/trust'
+    | '/about/process'
+    | '/about/technology'
     | '/services/ai-learning'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -165,6 +195,9 @@ export interface FileRouteTypes {
     | '/moodle-development'
     | '/services'
     | '/solutions'
+    | '/trust'
+    | '/about/process'
+    | '/about/technology'
     | '/services/ai-learning'
   id:
     | '__root__'
@@ -180,12 +213,15 @@ export interface FileRouteTypes {
     | '/moodle-development'
     | '/services'
     | '/solutions'
+    | '/trust'
+    | '/about/process'
+    | '/about/technology'
     | '/services/ai-learning'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  AboutRoute: typeof AboutRouteWithChildren
   AiServicesRoute: typeof AiServicesRoute
   BlogRoute: typeof BlogRoute
   CareersRoute: typeof CareersRoute
@@ -196,6 +232,7 @@ export interface RootRouteChildren {
   MoodleDevelopmentRoute: typeof MoodleDevelopmentRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SolutionsRoute: typeof SolutionsRoute
+  TrustRoute: typeof TrustRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -284,6 +321,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolutionsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/trust': {
+      id: '/trust'
+      path: '/trust'
+      fullPath: '/trust'
+      preLoaderRoute: typeof TrustRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about/process': {
+      id: '/about/process'
+      path: '/process'
+      fullPath: '/about/process'
+      preLoaderRoute: typeof AboutProcessRouteImport
+      parentRoute: typeof AboutRoute
+    }
+    '/about/technology': {
+      id: '/about/technology'
+      path: '/technology'
+      fullPath: '/about/technology'
+      preLoaderRoute: typeof AboutTechnologyRouteImport
+      parentRoute: typeof AboutRoute
+    }
     '/services/ai-learning': {
       id: '/services/ai-learning'
       path: '/ai-learning'
@@ -293,6 +351,18 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AboutRouteChildren {
+  AboutProcessRoute: typeof AboutProcessRoute
+  AboutTechnologyRoute: typeof AboutTechnologyRoute
+}
+
+const AboutRouteChildren: AboutRouteChildren = {
+  AboutProcessRoute: AboutProcessRoute,
+  AboutTechnologyRoute: AboutTechnologyRoute,
+}
+
+const AboutRouteWithChildren = AboutRoute._addFileChildren(AboutRouteChildren)
 
 interface ServicesRouteChildren {
   ServicesAiLearningRoute: typeof ServicesAiLearningRoute
@@ -308,7 +378,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  AboutRoute: AboutRouteWithChildren,
   AiServicesRoute: AiServicesRoute,
   BlogRoute: BlogRoute,
   CareersRoute: CareersRoute,
@@ -319,6 +389,7 @@ const rootRouteChildren: RootRouteChildren = {
   MoodleDevelopmentRoute: MoodleDevelopmentRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SolutionsRoute: SolutionsRoute,
+  TrustRoute: TrustRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

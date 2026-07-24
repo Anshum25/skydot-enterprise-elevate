@@ -51,17 +51,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Skydot Infotech — Enterprise Moodle, LMS & AI Solutions" },
+      { title: "Dynamic Pixel — Best E-Learning Content Development Company" },
       {
         name: "description",
         content:
-          "Enterprise Moodle engineering, CBT platforms and applied AI for universities, governments and global enterprises. Trusted by 400+ organizations.",
+          "Explore India's best eLearning content development companies for custom, interactive training solutions and services.",
       },
-      { property: "og:title", content: "Skydot Infotech — Enterprise Learning Platforms" },
+      { property: "og:title", content: "Dynamic Pixel — Best E-Learning Content Development" },
       {
         property: "og:description",
         content:
-          "We build compliant, high-scale Moodle, CBT and AI learning ecosystems for regulated industries worldwide.",
+          "Explore India's best eLearning content development companies for custom, interactive training solutions and services.",
       },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -83,75 +83,75 @@ const TRUST_LOGOS = [
 ];
 
 const STATS = [
-  { value: "400+", label: "Enterprise deployments" },
-  { value: "12M+", label: "Learners served globally" },
-  { value: "99.99%", label: "Platform uptime SLA" },
+  { value: "10+", label: "Years of Experience" },
+  { value: "400+", label: "Clients Globally" },
+  { value: "5000+", label: "Projects Delivered" },
   { value: "28", label: "Countries delivered in" },
 ];
 
 const CORE_VALUES = [
   {
     icon: GitBranch,
-    title: "Open Source First",
-    desc: "Build on Moodle standards instead of unnecessary custom forks.",
+    title: "Innovative Solutions",
+    desc: "Providing cutting-edge E-learning solutions tailored to your needs.",
   },
   {
     icon: Shield,
-    title: "Security & Reliability",
-    desc: "Enterprise-grade security, scalability and stability.",
+    title: "Quality Content",
+    desc: "High-quality, engaging, and interactive content development.",
   },
   {
     icon: Handshake,
-    title: "Long-Term Partnership",
-    desc: "Focus on continuous improvement rather than one-time projects.",
+    title: "Client Centric",
+    desc: "Focusing on delivering maximum value and long-term partnerships.",
   },
   {
     icon: Code2,
-    title: "Engineering Excellence",
-    desc: "Clean architecture, maintainable solutions and modern technologies.",
+    title: "Expert Team",
+    desc: "Experienced professionals dedicated to your success.",
   },
 ];
 
-const CHOOSE_SKYDOT = [
+const CHOOSE_DYNAMIC_PIXEL = [
   {
     icon: Award,
-    title: "Enterprise Moodle Expertise",
-    desc: "Certified implementation approach for complex Moodle and Moodle Workplace environments.",
+    title: "Custom E-Learning",
+    desc: "Tailored content to meet organizational learning objectives.",
   },
   {
     icon: Code2,
-    title: "Custom Plugin Development",
-    desc: "Tailor Moodle to business requirements without compromising upgrade paths.",
+    title: "Moodle Services",
+    desc: "Complete Moodle implementation, customization, and plugin development.",
   },
   {
     icon: Cloud,
-    title: "Managed Cloud Hosting",
-    desc: "Secure and scalable deployments across public, private and hybrid infrastructure.",
+    title: "Animated Videos",
+    desc: "Engaging 2D and whiteboard animations to simplify complex concepts.",
   },
   {
     icon: Sparkles,
-    title: "AI-Powered Learning",
-    desc: "Modern intelligent learning experiences grounded in platform content and governance.",
+    title: "AI Solutions",
+    desc: "HACC Gen Moodle-AI plugin for enhanced learning experiences.",
   },
   {
     icon: MonitorCheck,
-    title: "CBT Platform Development",
-    desc: "Secure online examination systems built for reliability, scale and exam control.",
+    title: "K-12 Content",
+    desc: "Interactive curriculum-aligned content for schools.",
   },
   {
     icon: Plug,
-    title: "System Integration",
-    desc: "ERP, CRM, HRMS, SSO and API integrations designed around real workflows.",
+    title: "Softskills Training",
+    desc: "KnowxBox OTS softskills courses for corporate training.",
   },
   {
     icon: Gauge,
-    title: "Performance Optimization",
-    desc: "High-speed Moodle environments with caching, tuning and observability.",
+    title: "Flash to HTML5",
+    desc: "Convert legacy flash content to modern HTML5 formats.",
   },
   {
     icon: Headphones,
-    title: "Long-Term Support",
-    desc: "Maintenance, upgrades and monitoring from a team that understands the platform.",
+    title: "Dedicated Support",
+    desc: "Continuous support and maintenance for all your learning platforms.",
   },
 ];
 
@@ -166,49 +166,49 @@ const HIGHLIGHTS = [
 const SERVICES = [
   {
     icon: BookOpen,
-    title: "Moodle Engineering",
-    desc: "Consulting, implementation, customization, plugin & theme development on Moodle LMS and Workplace.",
+    title: "Moodle Services",
+    desc: "Consulting, implementation, customization, plugin & theme development.",
     href: "/moodle-development",
   },
   {
     icon: Shield,
-    title: "CBT & Assessment",
-    desc: "Enterprise-grade computer-based testing with AI proctoring, question banks and secure delivery at scale.",
-    href: "/cbt",
+    title: "Custom Learning",
+    desc: "Custom eLearning development, mobile learning, and game-based learning.",
+    href: "/solutions",
   },
   {
     icon: Sparkles,
-    title: "Applied AI for Learning",
-    desc: "AI tutors, adaptive learning, content generation, translation and predictive analytics.",
+    title: "AI Services",
+    desc: "HACC Gen - Moodle-AI Plugin and advanced AI learning features.",
     href: "/ai-services",
   },
   {
     icon: Cloud,
-    title: "Managed Cloud Hosting",
-    desc: "24×7 managed hosting on AWS, Azure and private cloud with Kubernetes, autoscaling and DR.",
+    title: "Animated Videos",
+    desc: "2D animations and whiteboard animations for engaging product explanation.",
     href: "/services",
   },
   {
     icon: Cpu,
-    title: "Integrations & APIs",
-    desc: "SSO, LDAP, OAuth, SAP, Oracle, Workday, Salesforce and HRMS/ERP integrations built-in.",
-    href: "/services",
+    title: "K-12 Solutions",
+    desc: "KinderSpecial pre-primary content and interactive school curriculums.",
+    href: "/solutions",
   },
   {
     icon: BarChart3,
-    title: "Learning Analytics",
-    desc: "Executive dashboards, xAPI/LRS pipelines and skills intelligence for measurable outcomes.",
-    href: "/ai-services",
+    title: "Softskills Courses",
+    desc: "KnowxBox off-the-shelf softskills courses for corporate training.",
+    href: "/services",
   },
 ];
 
 const INDUSTRIES = [
-  { icon: GraduationCap, name: "Higher Education", desc: "Universities, edtech, research institutes" },
-  { icon: Landmark, name: "Government", desc: "Ministries, PSUs, defense training academies" },
-  { icon: Building2, name: "Enterprise", desc: "Fortune-scale corporate learning & upskilling" },
-  { icon: HeartPulse, name: "Healthcare", desc: "CME, clinical training, compliance" },
-  { icon: Banknote, name: "Banking & Insurance", desc: "Regulatory training and certifications" },
-  { icon: Factory, name: "Manufacturing", desc: "Shopfloor training, safety and OJT" },
+  { icon: GraduationCap, name: "Higher Education", desc: "Universities, colleges, and institutes" },
+  { icon: Landmark, name: "Corporate", desc: "Internal policies, induction, and product training" },
+  { icon: Building2, name: "K-12 Schools", desc: "Interactive digital curriculum content" },
+  { icon: HeartPulse, name: "Training Academies", desc: "Commercial learning platforms" },
+  { icon: Banknote, name: "Government", desc: "Public sector training and compliance" },
+  { icon: Factory, name: "NGOs", desc: "Affordable learning solutions for social impact" },
 ];
 
 const WHY = [
@@ -266,7 +266,7 @@ const CASES = [
 const TESTIMONIALS = [
   {
     quote:
-      "Skydot rebuilt our Moodle estate from the ground up. We now support 3× the concurrent learners on 40% lower infrastructure spend.",
+      "Dynamic Pixel rebuilt our Moodle estate and transformed our content. We now support 3× the concurrent learners with highly engaging courses.",
     name: "Dr. Ananya Rao",
     role: "CIO, National Skills University",
   },
@@ -320,7 +320,7 @@ function HomePage() {
               <SectionHeader
                 eyebrow="Who We Are"
                 title="A Trusted Technology Partner for Enterprise Learning Solutions"
-                description="Skydot Infotech specializes in designing, implementing, customizing and managing enterprise Moodle platforms for organizations that need scalable, secure and future-ready learning environments. Our work combines Moodle expertise, learning technology, open source engineering, CBT platforms, AI learning, managed services and digital transformation into practical systems teams can run with confidence."
+                description="Dynamic Pixel specializes in designing, implementing, customizing and managing enterprise Moodle platforms and custom E-learning content for organizations that need scalable, secure and future-ready learning environments. Our work combines Moodle expertise, learning technology, custom content development, AI learning, and digital transformation into practical systems teams can run with confidence."
               />
 
               <div className="mt-10 grid sm:grid-cols-2 gap-5">
@@ -330,7 +330,7 @@ function HomePage() {
                   </div>
                   <h3 className="mt-5 font-display font-semibold text-lg text-heading">Mission</h3>
                   <p className="mt-2 text-sm leading-relaxed text-paragraph">
-                    Helping organizations build reliable digital learning ecosystems through enterprise-grade Moodle solutions.
+                    Helping organizations build reliable digital learning ecosystems through enterprise-grade E-learning and Moodle solutions.
                   </p>
                 </Card>
                 <Card className="p-6 border-border bg-card">
@@ -419,14 +419,14 @@ function HomePage() {
       <section className="section-y bg-surface border-y border-border">
         <div className="container-page">
           <SectionHeader
-            eyebrow="Why Choose Skydot"
-            title="Why Organizations Choose Skydot"
-            description="Successful Moodle implementations require more than installation. They require architecture, customization, integration, security and long-term support from a team that understands how learning platforms behave in production."
+            eyebrow="Why Choose Dynamic Pixel"
+            title="Why Organizations Choose Dynamic Pixel"
+            description="Successful learning implementations require more than just software. They require engaging content, architecture, customization, integration, and long-term support from a team that understands how learning behaves."
             align="center"
           />
 
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {CHOOSE_SKYDOT.map((feature) => (
+            {CHOOSE_DYNAMIC_PIXEL.map((feature) => (
               <Card key={feature.title} className="p-6 border-border bg-card">
                 <div className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary">
                   <feature.icon className="size-5" />
@@ -456,8 +456,8 @@ function HomePage() {
           <div className="flex items-end justify-between gap-8 flex-wrap">
             <SectionHeader
               eyebrow="What we do"
-              title={<>A complete platform partner for enterprise learning.</>}
-              description="From strategy and platform engineering to AI, hosting and 24×7 operations — one accountable partner across the full lifecycle."
+              title={<>A complete partner for E-learning development.</>}
+              description="From strategy and custom content to AI, hosting and LMS operations — one accountable partner across the full lifecycle."
             />
             <Button asChild variant="ghost" className="hidden md:inline-flex">
               <Link to="/services">All services <ChevronRight className="ml-1 size-4" /></Link>
@@ -485,9 +485,9 @@ function HomePage() {
         <div className="container-page">
           <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
             <SectionHeader
-              eyebrow="Why Skydot"
-              title="The rigor of an enterprise vendor. The craft of a modern product team."
-              description="We combine deep Moodle engineering with product design and applied AI — governed by enterprise-grade delivery, security and operations."
+              eyebrow="Why Dynamic Pixel"
+              title="The rigor of an enterprise vendor. The craft of a modern content team."
+              description="We combine deep Moodle engineering with product design, custom E-learning development and applied AI."
             />
             <div className="grid sm:grid-cols-2 gap-5">
               {WHY.map((w) => (
@@ -674,7 +674,7 @@ function HomePage() {
       {/* CTA */}
       <section className="section-y">
         <div className="container-page">
-          <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-primary to-[#1D4ED8] text-primary-foreground p-10 md:p-16 shadow-elevated">
+          <div className="relative overflow-hidden rounded-xl border border-border bg-gradient-to-br from-primary to-[#1D4ED8] text-primary-foreground p-10 md:p-16 shadow-elevated">
             <div className="absolute inset-0 grid-bg opacity-10" />
             <div className="relative max-w-3xl">
               <Eyebrow className="text-white/80">Ready when you are</Eyebrow>

@@ -7,10 +7,10 @@ import { Award, Compass, Eye, HeartHandshake, Users, Building2, ArrowRight, Spar
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Skydot Infotech — Our story, mission and leadership" },
-      { name: "description", content: "Skydot Infotech is an enterprise learning technology company building Moodle, CBT and AI platforms for global organizations." },
-      { property: "og:title", content: "About Skydot Infotech" },
-      { property: "og:description", content: "The people, mission and craft behind Skydot's enterprise learning platforms." },
+      { title: "About Dynamic Pixel — Our story, mission and leadership" },
+      { name: "description", content: "Dynamic Pixel is an enterprise learning technology company building custom content, Moodle, and AI platforms for global organizations." },
+      { property: "og:title", content: "About Dynamic Pixel" },
+      { property: "og:description", content: "The people, mission and craft behind Dynamic Pixel's e-learning solutions." },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
@@ -19,34 +19,34 @@ export const Route = createFileRoute("/about")({
 
 const VALUES = [
   { icon: ShieldCheck, title: "Integrity first", desc: "Enterprise trust is earned. We write clear contracts, honest estimates and deliver what we commit." },
-  { icon: Sparkles, title: "Craft over hype", desc: "We choose durable engineering and considered design over trend-chasing." },
-  { icon: HeartHandshake, title: "Customer outcomes", desc: "We measure ourselves by learner outcomes and business KPIs — not tickets closed." },
-  { icon: Rocket, title: "Bias for shipping", desc: "Weekly releases. Quarterly business reviews. Continuous improvement." },
+  { icon: Sparkles, title: "Creative Craft", desc: "We choose engaging content, high-quality animations, and considered design over trend-chasing." },
+  { icon: HeartHandshake, title: "Customer outcomes", desc: "We measure ourselves by learner outcomes and business KPIs." },
+  { icon: Rocket, title: "Continuous Innovation", desc: "Leveraging the latest in AI and educational technology." },
 ];
 
 const JOURNEY = [
-  ["2014", "Founded in Bengaluru with a focus on Moodle engineering for Indian universities."],
-  ["2016", "First national-scale deployment for a state examinations authority."],
-  ["2018", "Launched the CBT platform. Crossed 1M annual assessments delivered."],
-  ["2020", "Global expansion — Dubai delivery hub. First Fortune 500 corporate learning engagement."],
-  ["2022", "AI R&D group established. Launched AI Proctoring and Adaptive Learning engines."],
-  ["2024", "London office. 400+ enterprise customers. 12M+ learners on platforms we build & operate."],
+  ["2014", "Founded with a focus on custom e-learning content for Indian enterprises."],
+  ["2016", "First national-scale deployment of custom K-12 learning modules."],
+  ["2018", "Launched the KnowxBox off-the-shelf softskills courses."],
+  ["2020", "Global expansion. Delivered our first Moodle-based enterprise solution."],
+  ["2022", "AI R&D group established. Launched HACC Gen Moodle-AI Plugin."],
+  ["2024", "400+ enterprise customers. Millions of learners on platforms we've built content for."],
 ];
 
 const LEADERS = [
-  { name: "Vikram S. Iyer", role: "Founder & CEO", bio: "20+ years across enterprise software and public-sector digital transformation." },
-  { name: "Priya Nair", role: "Chief Technology Officer", bio: "Ex-principal engineer with a background in distributed systems and learning platforms." },
+  { name: "Vikram S. Iyer", role: "Founder & CEO", bio: "20+ years across enterprise e-learning and digital transformation." },
+  { name: "Priya Nair", role: "Chief Technology Officer", bio: "Ex-principal engineer with a background in Moodle and learning platforms." },
   { name: "Ahmed Al-Farsi", role: "Managing Director, MENA", bio: "Leads Middle East delivery, working with governments and financial institutions." },
-  { name: "Elena Petrova", role: "VP, Applied AI", bio: "Research background in NLP and adaptive learning; leads Skydot's AI centre of excellence." },
+  { name: "Elena Petrova", role: "VP, Applied AI", bio: "Research background in NLP and adaptive learning; leads Dynamic Pixel's AI centre of excellence." },
 ];
 
 function AboutPage() {
   return (
     <div>
       <PageHero
-        eyebrow="About Skydot"
-        title={<>An enterprise learning company built by engineers, designers and educators.</>}
-        description="For a decade we have quietly built the platforms that governments, universities and enterprises rely on to train their people — combining Moodle expertise, product design and applied AI."
+        eyebrow="About Dynamic Pixel"
+        title={<>An enterprise learning company built by educators, designers and engineers.</>}
+        description="For a decade we have quietly built the content and platforms that governments, universities and enterprises rely on to train their people — combining e-learning expertise, product design and applied AI."
       />
 
       <section className="section-y">
@@ -117,9 +117,9 @@ function AboutPage() {
       <section className="section-y">
         <div className="container-page grid md:grid-cols-3 gap-6">
           {[
-            { icon: Building2, k: "3 global hubs", v: "Bengaluru · Dubai · London" },
-            { icon: Users, k: "220+ people", v: "Engineers, designers, LMS specialists" },
-            { icon: Award, k: "ISO 27001 aligned", v: "SOC 2 controls in progress" },
+            { icon: Building2, k: "Global presence", v: "Delivery hubs around the world" },
+            { icon: Users, k: "220+ people", v: "Educators, designers, LMS specialists" },
+            { icon: Award, k: "ISO 27001 aligned", v: "Data security and privacy controls" },
           ].map((s) => (
             <Card key={s.k} className="p-8 border-border bg-card">
               <s.icon className="size-6 text-primary" />
@@ -139,7 +139,7 @@ function CtaBlock() {
   return (
     <section className="section-y">
       <div className="container-page">
-        <div className="rounded-2xl border border-border bg-surface p-10 md:p-14 grid md:grid-cols-[1.6fr_1fr] items-center gap-8">
+        <div className="rounded-xl border border-border bg-surface p-10 md:p-14 grid md:grid-cols-[1.6fr_1fr] items-center gap-8">
           <div>
             <h3 className="font-display font-bold text-2xl md:text-3xl text-heading">Work with a partner your board will trust.</h3>
             <p className="mt-3 text-paragraph max-w-2xl">Talk to a solution architect. No sales cycle theatre — just a working conversation about your goals.</p>

@@ -2,182 +2,249 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageHero, SectionHeader } from "@/components/section-header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Server, Puzzle, Palette, GitBranch, Container, ShieldCheck, LineChart, Sparkles, RefreshCw, Cog, Cloud, Cpu, Users, Layers, LifeBuoy, Zap, Award, Lock } from "lucide-react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Lightbulb,
+  Code,
+  Server,
+  Briefcase,
+  GraduationCap,
+  Headset,
+  Zap,
+  Eye,
+  Award,
+  Gamepad2,
+  Target,
+  Map,
+  Palette,
+  Plug,
+  Video,
+  CreditCard,
+  Database,
+  CheckCircle,
+  GitMerge,
+  Container,
+  Network,
+  Activity,
+  ShieldCheck,
+  Cpu,
+  Handshake,
+  ArrowRight
+} from "lucide-react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Enterprise Moodle, LMS, Cloud & AI | Skydot Infotech" },
-      { name: "description", content: "End-to-end services: Moodle consulting, implementation, customization, plugin & theme development, managed hosting, integrations and 24×7 support." },
-      { property: "og:title", content: "Skydot Services — Enterprise Moodle, LMS, Cloud & AI" },
-      { property: "og:description", content: "One accountable partner across the full enterprise learning lifecycle." },
+      { title: "Our Services | Dynamic Pixel" },
+      { name: "description", content: "Complete E-Learning & Custom Content Solutions" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
   }),
   component: ServicesPage,
 });
 
-const GROUPS = [
+const CATEGORIES = [
   {
-    title: "Consulting & Strategy",
-    icon: Compass2,
-    items: [
-      ["Moodle Consulting", "Roadmaps, audits, TCO analysis and platform strategy."],
-      ["LMS Selection & RFP support", "Independent, vendor-neutral advisory for buyers."],
-      ["Learning Architecture", "Blueprints for content, data, integrations and analytics."],
+    icon: Lightbulb,
+    title: "E-Learning Solutions",
+    description: "Helping organizations build custom e-learning modules from induction to product training.",
+    services: [
+      "Induction Training",
+      "Internal Policies",
+      "Product Explanation",
+      "Applications/Softwares",
+      "Game Based Learning",
+      "Mobile Learning",
+      "Simulations",
     ],
+    image: "https://dynamicpixel.co.in/assets/img/solutions_img/elearning_solution.png"
   },
   {
-    title: "Implementation & Engineering",
-    icon: Cog,
-    items: [
-      ["Moodle Implementation", "Full-lifecycle deployments — from discovery to go-live."],
-      ["Customization", "Deep customization of workflows, roles and learner experience."],
-      ["Plugin Development", "Bespoke plugins, blocks, activities and reports."],
-      ["Theme Development", "Accessible, on-brand themes for Moodle & Workplace."],
-      ["Migration", "From Moodle 3.x, Totara, Blackboard, Canvas and legacy LMS."],
+    icon: Code,
+    title: "Moodle LMS Solutions",
+    description: "Complete Moodle services including implementation, hosting, and custom AI plugins.",
+    services: [
+      "Moodle Installation",
+      "Moodle Hosting",
+      "Custom Plugin Development",
+      "HACC Gen Moodle-AI",
+      "Theme Customization",
+      "Moodle Upgrade",
+      "Moodle Support",
     ],
+    image: "https://dynamicpixel.co.in/assets/img/solutions_img/lms.png"
   },
   {
-    title: "Cloud, DevOps & Hosting",
-    icon: Cloud,
-    items: [
-      ["Managed Hosting", "24×7 hosting on AWS, Azure, GCP, private and sovereign cloud."],
-      ["Docker & Kubernetes", "Container-native, autoscaling Moodle & LMS platforms."],
-      ["CI/CD & GitOps", "Reproducible releases with automated testing and rollbacks."],
-      ["Performance Optimization", "Caching, query tuning, CDN and load testing."],
-      ["Monitoring & Observability", "Grafana, Prometheus, ELK and alerting workflows."],
-      ["Backup & DR", "Encrypted backups and multi-region disaster recovery."],
+    icon: Server,
+    title: "Animated Videos",
+    description: "Engaging 2D animations and whiteboard animations to simplify complex concepts.",
+    services: [
+      "2D Animations",
+      "Whiteboard Animations",
+      "Explainer Videos",
+      "Character Animation",
+      "Storyboarding",
+      "Voiceover",
+      "Scriptwriting",
     ],
+    image: "https://dynamicpixel.co.in/assets/img/solutions_img/2D_animations.png"
   },
   {
-    title: "Integrations",
-    icon: Puzzle,
-    items: [
-      ["SSO", "SAML, OAuth 2.0, OIDC, LDAP, Active Directory."],
-      ["ERP & HRMS", "SAP SuccessFactors, Workday, Oracle HCM, Zoho People."],
-      ["CRM", "Salesforce, HubSpot, Dynamics 365 learner journeys."],
-      ["Content Standards", "SCORM, xAPI, cmi5, H5P, LTI 1.3 / Advantage."],
-      ["Payments", "Stripe, Razorpay, PayU and enterprise billing workflows."],
+    icon: Briefcase,
+    title: "K-12 Solutions",
+    description: "Interactive curriculum-aligned content for schools and pre-primary education.",
+    services: [
+      "KinderSpecial",
+      "Curriculum Content",
+      "Interactive Assessments",
+      "Digital Textbooks",
+      "Teacher Resources",
+      "Animation for Kids",
+      "Mobile Learning",
     ],
-  },
-  {
-    title: "Security & Governance",
-    icon: Lock,
-    items: [
-      ["Security Hardening", "OWASP, CIS benchmarks, secure SDLC."],
-      ["Compliance", "GDPR, DPDP, HIPAA, ISO 27001-aligned controls."],
-      ["Accessibility", "WCAG 2.1 AA and localization for global learners."],
-      ["Audit Support", "Evidence packs and audit-ready reporting."],
-    ],
-  },
-  {
-    title: "AI & Analytics",
-    icon: Sparkles,
-    items: [
-      ["AI Tutor & Chatbot", "Grounded assistants embedded in the learning flow."],
-      ["Learning Analytics", "Dashboards, xAPI/LRS pipelines, skills intelligence."],
-      ["AI Proctoring", "Face, voice and environment analysis for secure exams."],
-      ["Content Generation", "Auto-question generation, summaries, translation."],
-    ],
-  },
-  {
-    title: "Managed Services & Support",
-    icon: LifeBuoy,
-    items: [
-      ["24×7 Technical Support", "L1–L3 support with defined SLAs and named engineers."],
-      ["Training & Enablement", "Admin, author and instructor certification programmes."],
-      ["Continuous Improvement", "Quarterly business reviews and platform roadmaps."],
-    ],
-  },
+    image: "https://dynamicpixel.co.in/assets/img/solutions_img/K-12_solution.png"
+  }
 ];
 
-function Compass2(props: any) { return <Sparkles {...props} />; }
-
-const PROCESS = [
-  { step: "01", title: "Discover", desc: "Workshops, KPI definition and current-state assessment." },
-  { step: "02", title: "Design", desc: "Solution blueprint, UX, architecture and integration map." },
-  { step: "03", title: "Build", desc: "Agile delivery with weekly demos and executive visibility." },
-  { step: "04", title: "Deploy", desc: "Cloud provisioning, hardening, UAT and go-live." },
-  { step: "05", title: "Operate", desc: "24×7 managed operations and continuous improvement." },
+const ADDITIONAL_SERVICES = [
+  { icon: GraduationCap, title: "Training", desc: "Expert-led sessions." },
+  { icon: Headset, title: "Support", desc: "24/7 dedicated assistance." },
+  { icon: Zap, title: "Performance Optimization", desc: "High-speed configurations." },
+  { icon: Eye, title: "Accessibility", desc: "WCAG compliant designs." },
+  { icon: Award, title: "Certificates", desc: "Automated credentialing." },
+  { icon: Gamepad2, title: "Gamification", desc: "Engaging learning mechanics." },
+  { icon: Target, title: "Competency Framework", desc: "Skill mapping tools." },
+  { icon: Map, title: "Learning Paths", desc: "Structured curriculums." },
+  { icon: Palette, title: "White Label", desc: "Fully branded solutions." },
+  { icon: Plug, title: "API Integration", desc: "Seamless system connectivity." },
+  { icon: Video, title: "Zoom Integration", desc: "Live virtual classrooms." },
+  { icon: Video, title: "Microsoft Teams", desc: "Enterprise communications." },
+  { icon: Video, title: "Google Meet", desc: "Integrated meetings." },
+  { icon: CreditCard, title: "Payment Gateway", desc: "Secure online transactions." },
+  { icon: Database, title: "Data Migration", desc: "Safe historical data transfer." },
+  { icon: CheckCircle, title: "Quality Assurance", desc: "Rigorous testing protocols." },
+  { icon: GitMerge, title: "DevOps", desc: "Continuous integration pipelines." },
+  { icon: Container, title: "Docker", desc: "Containerized environments." },
+  { icon: Network, title: "Kubernetes", desc: "Orchestrated scaling." },
+  { icon: Activity, title: "Monitoring", desc: "Real-time system insights." },
 ];
 
-const FAQ = [
-  ["Do you offer fixed-price engagements?", "Yes. We use fixed-price for well-scoped implementations and time-and-materials for open-ended engineering work."],
-  ["What SLAs do you offer for managed hosting?", "Standard SLAs include 99.95% uptime with options for 99.99% via active-active deployment; response times start at 15 minutes for P1."],
-  ["Can you take over an existing Moodle instance?", "Yes. We run a 2–3 week transition covering audit, hardening, runbooks and knowledge transfer before assuming operations."],
-  ["Do you provide on-site engineers?", "For select government and enterprise engagements, we deploy on-site engineers and secure liaison teams."],
+const WHY_US = [
+  {
+    icon: ShieldCheck,
+    title: "Custom Tailored",
+    description: "Every solution is custom-built to match your organization's specific learning objectives and branding."
+  },
+  {
+    icon: Cpu,
+    title: "Technology Driven",
+    description: "We utilize modern technologies like HTML5, AI, and Moodle to deliver future-proof content."
+  },
+  {
+    icon: Handshake,
+    title: "Long-Term Partnership",
+    description: "Dynamic Pixel focuses on continuous improvement and support rather than just one-time delivery."
+  }
 ];
 
 function ServicesPage() {
   return (
     <div>
       <PageHero
-        eyebrow="Services"
-        title={<>One accountable partner across the full learning-platform lifecycle.</>}
-        description="Whether you are launching a new LMS, modernizing a legacy Moodle estate or running mission-critical assessments, our teams cover every stage — strategy, engineering, cloud, AI and 24×7 operations."
-      >
-        <div className="flex flex-wrap gap-3">
-          <Button asChild size="lg"><Link to="/contact">Talk to a solution architect <ArrowRight className="ml-2 size-4" /></Link></Button>
-          <Button asChild size="lg" variant="outline"><Link to="/case-studies">See case studies</Link></Button>
-        </div>
-      </PageHero>
+        eyebrow="Our Services"
+        title="Complete E-Learning & Custom Content Solutions"
+        description="Dynamic Pixel provides end-to-end custom e-learning development, Moodle services, K-12 solutions, animated videos, and AI plugins for organizations and institutions."
+      />
 
-      {GROUPS.map((g, idx) => (
-        <section key={g.title} className={`section-y ${idx % 2 === 1 ? "bg-surface border-y border-border" : ""}`}>
-          <div className="container-page">
-            <div className="flex items-center gap-3">
-              <div className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary"><g.icon className="size-5" /></div>
-              <h2 className="font-display font-bold text-2xl md:text-3xl text-heading">{g.title}</h2>
-            </div>
-            <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {g.items.map(([title, desc]) => (
-                <Card key={title} className="p-6 border-border bg-card card-hover">
-                  <div className="font-display font-semibold text-heading">{title}</div>
-                  <p className="mt-2 text-sm text-paragraph leading-relaxed">{desc}</p>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-      ))}
-
-      <section className="section-y">
+      {/* SERVICE CATEGORIES */}
+      <section className="section-y bg-surface">
         <div className="container-page">
-          <SectionHeader eyebrow="Delivery" title="A predictable, engineering-led delivery model." />
-          <div className="mt-14 grid md:grid-cols-5 gap-4">
-            {PROCESS.map(p => (
-              <div key={p.step} className="rounded-xl border border-border bg-card p-6 card-hover">
-                <div className="font-mono text-xs text-primary tracking-widest">{p.step}</div>
-                <div className="mt-3 font-display font-semibold text-heading">{p.title}</div>
-                <div className="mt-1.5 text-sm text-paragraph">{p.desc}</div>
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-10">
+            {CATEGORIES.map((cat) => (
+              <Card key={cat.title} className="p-8 border-border bg-card shadow-soft rounded-lg flex flex-col h-full card-hover group">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="grid size-12 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <cat.icon className="size-6" />
+                  </div>
+                  {cat.image && <img src={cat.image} alt={cat.title} className="h-12 object-contain" />}
+                </div>
+                <h3 className="font-display font-bold text-2xl text-heading">{cat.title}</h3>
+                <p className="mt-3 text-paragraph leading-relaxed text-lg">{cat.description}</p>
+                <div className="mt-8 mb-10 flex-1">
+                  <div className="text-xs font-bold text-heading mb-5 uppercase tracking-wider">Included Services</div>
+                  <ul className="grid sm:grid-cols-2 gap-y-3 gap-x-4">
+                    {cat.services.map((s) => (
+                      <li key={s} className="flex items-start gap-2 text-sm text-paragraph">
+                        <span className="mt-[2px] text-primary shrink-0">•</span>
+                        <span>{s}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-auto">
+                  <Button variant="outline" className="w-fit text-heading group-hover:border-primary group-hover:text-primary transition-colors">
+                    Learn More <ArrowRight className="ml-2 size-4" />
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ADDITIONAL PROFESSIONAL SERVICES */}
+      <section className="section-y bg-background border-y border-border">
+        <div className="container-page">
+          <SectionHeader
+            title="Additional Professional Services"
+            align="center"
+          />
+          <div className="mt-14 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 xl:gap-5">
+            {ADDITIONAL_SERVICES.map((s) => (
+              <div key={s.title} className="rounded-lg border border-border bg-card p-5 card-hover shadow-card flex items-start gap-4">
+                <s.icon className="size-5 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-display font-semibold text-sm text-heading">{s.title}</h4>
+                  <p className="mt-1 text-xs text-paragraph leading-relaxed">{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section-y bg-surface border-y border-border">
-        <div className="container-page grid lg:grid-cols-[1fr_1.4fr] gap-16">
-          <SectionHeader eyebrow="FAQ" title="Common questions from enterprise buyers." />
-          <Accordion type="single" collapsible defaultValue="q0" className="w-full">
-            {FAQ.map(([q, a], i) => (
-              <AccordionItem key={i} value={`q${i}`}>
-                <AccordionTrigger className="text-left font-display font-semibold text-heading hover:no-underline">{q}</AccordionTrigger>
-                <AccordionContent className="text-paragraph leading-relaxed">{a}</AccordionContent>
-              </AccordionItem>
+      {/* WHY OUR SERVICES */}
+      <section className="section-y bg-surface">
+        <div className="container-page">
+          <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
+            {WHY_US.map((why) => (
+              <div key={why.title} className="flex flex-col items-start group">
+                <div className="grid size-12 place-items-center rounded-lg bg-primary/10 text-primary mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <why.icon className="size-6" />
+                </div>
+                <h3 className="font-display font-bold text-xl text-heading mb-3">{why.title}</h3>
+                <p className="text-sm md:text-base leading-relaxed text-paragraph">{why.description}</p>
+              </div>
             ))}
-          </Accordion>
+          </div>
         </div>
       </section>
 
-      <section className="section-y">
+      {/* CALL TO ACTION */}
+      <section className="section-y bg-background border-t border-border">
         <div className="container-page">
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-primary to-[#1D4ED8] text-white p-10 md:p-14 shadow-elevated">
-            <h3 className="font-display font-bold text-3xl md:text-4xl">Have a specific requirement in mind?</h3>
-            <p className="mt-4 text-white/85 max-w-2xl">Send us a brief. We'll respond within one business day with an approach note, indicative timeline and next steps.</p>
-            <Button asChild size="lg" variant="secondary" className="mt-8 bg-white text-primary hover:bg-white/90"><Link to="/contact">Start a conversation <ArrowRight className="ml-2 size-4" /></Link></Button>
+          <div className="rounded-xl border border-border bg-card p-10 md:p-16 text-center shadow-elevated">
+            <h2 className="font-display font-bold text-3xl md:text-4xl lg:text-5xl text-heading tracking-tight">Looking for the Right E-Learning Solution?</h2>
+            <p className="mt-5 text-paragraph text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+              Our specialists can help you choose the right content strategy, LMS deployment, and development approach for your organization.
+            </p>
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="h-12 px-8 text-base">
+                <Link to="/contact">Schedule a Consultation</Link>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="h-12 px-8 text-base bg-background">
+                <Link to="/solutions">Explore Solutions</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

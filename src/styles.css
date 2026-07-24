@@ -9,11 +9,11 @@
   --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: calc(var(--radius) - 1px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-xl: calc(var(--radius) + 2px);
+  --radius-2xl: calc(var(--radius) + 4px);
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -40,44 +40,45 @@
   --color-heading: var(--heading);
   --color-paragraph: var(--paragraph);
 
-  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 1px 3px 0 rgb(0 0 0 / 0.06);
-  --shadow-elevated: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 8px -2px rgb(0 0 0 / 0.04);
-  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.04), 0 1px 2px 0 rgb(0 0 0 / 0.02);
+  /* Enterprise Shadows: Subtler, crisper */
+  --shadow-soft: 0 1px 2px 0 rgb(0 0 0 / 0.03), 0 1px 3px 0 rgb(0 0 0 / 0.04);
+  --shadow-elevated: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -1px rgb(0 0 0 / 0.03);
+  --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.03);
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.5rem; /* Reduced from 0.75rem for sharper enterprise look */
 
-  /* Light mode — SKYDOT INFOTECH professional theme */
+  /* Light mode */
   --background: #FFFFFF;
   --surface: #F8FAFC;
   --surface-alt: #F1F5F9;
   --foreground: #1A1A1A;
   --heading: #111111;
-  --paragraph: #4A4A4A;
+  --paragraph: #4B5563; /* slightly darker for better WCAG contrast */
 
   --card: #FFFFFF;
   --card-foreground: #1A1A1A;
   --popover: #FFFFFF;
   --popover-foreground: #1A1A1A;
 
-  --primary: #FF6B35;
+  --primary: #EA580C; /* Slightly deeper orange for contrast (Tailwind orange-600) */
   --primary-foreground: #FFFFFF;
-  --accent-brand: #FF8C5A;
+  --accent-brand: #F97316; /* Tailwind orange-500 */
 
   --secondary: #F8FAFC;
   --secondary-foreground: #1A1A1A;
   --muted: #F1F5F9;
   --muted-foreground: #6B7280;
   --accent: #FFF5EE;
-  --accent-foreground: #FF6B35;
+  --accent-foreground: #EA580C;
 
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
 
-  --border: #E5E7EB;
-  --input: #E5E7EB;
-  --ring: #FF6B35;
+  --border: #E2E8F0; /* Crisper border */
+  --input: #E2E8F0;
+  --ring: #EA580C;
 }
 
 .dark {
@@ -133,7 +134,7 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--color-heading);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em; /* Less aggressive tracking */
     font-weight: 700;
   }
 
@@ -143,6 +144,12 @@
 
   .font-mono, code, pre, .tabular {
     font-family: var(--font-mono);
+  }
+
+  /* Global focus styles for accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
   }
 }
 
@@ -157,9 +164,9 @@
 }
 
 @utility section-y {
-  padding-block: 6rem;
+  padding-block: 5rem; /* Slightly tightened from 6/8rem to keep info density high (Enterprise) */
   @media (min-width: 768px) {
-    padding-block: 8rem;
+    padding-block: 7rem;
   }
 }
 
@@ -169,23 +176,23 @@
   gap: 0.5rem;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-primary);
 }
 
 @utility hero-gradient {
   background:
-    radial-gradient(ellipse 60% 50% at 50% 0%, color-mix(in oklab, var(--color-primary) 12%, transparent), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 0%, color-mix(in oklab, var(--color-primary) 8%, transparent), transparent 50%),
     linear-gradient(180deg, var(--color-background) 0%, var(--color-surface) 100%);
 }
 
 @utility card-hover {
-  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+  /* Removed translateY. Focus solely on subtle border and shadow changes */
+  transition: box-shadow 150ms ease, border-color 150ms ease;
   &:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px -2px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-    border-color: color-mix(in oklab, var(--color-primary) 15%, var(--color-border));
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+    border-color: color-mix(in oklab, var(--color-primary) 20%, var(--color-border));
   }
 }
 
@@ -241,17 +248,16 @@
   padding: 0.75rem 1.5rem;
   font-size: 0.9375rem;
   font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   background-color: var(--color-primary);
   color: var(--color-primary-foreground);
   border: 1px solid transparent;
-  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+  transition: background-color 150ms ease;
   &:hover {
-    background-color: color-mix(in oklab, var(--color-primary) 90%, black);
-    transform: translateY(-1px);
+    background-color: color-mix(in oklab, var(--color-primary) 85%, black);
   }
   &:active {
-    transform: translateY(0);
+    background-color: color-mix(in oklab, var(--color-primary) 70%, black);
   }
 }
 
@@ -263,16 +269,16 @@
   padding: 0.75rem 1.5rem;
   font-size: 0.9375rem;
   font-weight: 600;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   background-color: var(--color-background);
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-  transition: background-color 150ms ease, border-color 150ms ease, transform 100ms ease;
+  color: var(--color-heading);
+  border: 1px solid var(--color-border);
+  transition: background-color 150ms ease, border-color 150ms ease;
   &:hover {
-    background-color: var(--color-accent);
-    transform: translateY(-1px);
+    background-color: var(--color-surface-alt);
+    border-color: color-mix(in oklab, var(--color-border) 80%, black);
   }
   &:active {
-    transform: translateY(0);
+    background-color: var(--color-surface);
   }
 }

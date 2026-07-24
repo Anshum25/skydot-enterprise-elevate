@@ -12,7 +12,7 @@ export function Logo({ className }: LogoProps) {
       <img
         src="/Untitled.jpeg"
         alt="Skydot Infotech"
-        className="h-11 w-auto max-w-[170px] object-contain"
+        className="h-11 w-auto max-w-[170px] object-contain mix-blend-multiply dark:invert dark:mix-blend-screen"
       />
     </Link>
   );
