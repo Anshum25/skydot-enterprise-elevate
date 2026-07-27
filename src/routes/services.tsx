@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatchRoute } from "@tanstack/react-router";
 import { PageHero, SectionHeader } from "@/components/section-header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -147,6 +147,13 @@ const WHY_US = [
 ];
 
 function ServicesPage() {
+  const matchRoute = useMatchRoute();
+  const isExact = matchRoute({ to: "/services", fuzzy: false });
+
+  if (!isExact) {
+    return <Outlet />;
+  }
+
   return (
     <div>
       <PageHero
@@ -169,7 +176,7 @@ function ServicesPage() {
                 </div>
                 <h3 className="font-display font-bold text-2xl text-heading">{cat.title}</h3>
                 <p className="mt-3 text-paragraph leading-relaxed text-lg">{cat.description}</p>
-                <div className="mt-8 mb-10 flex-1">
+                <div className="mt-8 flex-1">
                   <div className="text-xs font-bold text-heading mb-5 uppercase tracking-wider">Included Services</div>
                   <ul className="grid sm:grid-cols-2 gap-y-3 gap-x-4">
                     {cat.services.map((s) => (
@@ -179,11 +186,6 @@ function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                </div>
-                <div className="mt-auto">
-                  <Button variant="outline" className="w-fit text-heading group-hover:border-primary group-hover:text-primary transition-colors">
-                    Learn More <ArrowRight className="ml-2 size-4" />
-                  </Button>
                 </div>
               </Card>
             ))}

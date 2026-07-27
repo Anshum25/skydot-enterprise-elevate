@@ -17,14 +17,24 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CbtRouteImport } from './routes/cbt'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DocsRouteImport } from './routes/docs'
+import { Route as DownloadsRouteImport } from './routes/downloads'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IndustriesRouteImport } from './routes/industries'
+import { Route as KnowledgeBaseRouteImport } from './routes/knowledge-base'
 import { Route as MoodleDevelopmentRouteImport } from './routes/moodle-development'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TrustRouteImport } from './routes/trust'
+import { Route as UpdatesRouteImport } from './routes/updates'
 import { Route as AboutProcessRouteImport } from './routes/about.process'
 import { Route as AboutTechnologyRouteImport } from './routes/about.technology'
+import { Route as ServicesServiceIdRouteImport } from './routes/services.$serviceId'
 import { Route as ServicesAiLearningRouteImport } from './routes/services.ai-learning'
+import { Route as ServicesMoodleConsultingRouteImport } from './routes/services.moodle-consulting'
+import { Route as ServicesMoodleCustomizationRouteImport } from './routes/services.moodle-customization'
+import { Route as ServicesMoodleImplementationRouteImport } from './routes/services.moodle-implementation'
+import { Route as SolutionsSolutionIdRouteImport } from './routes/solutions.$solutionId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -66,9 +76,29 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndustriesRoute = IndustriesRouteImport.update({
   id: '/industries',
   path: '/industries',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeBaseRoute = KnowledgeBaseRouteImport.update({
+  id: '/knowledge-base',
+  path: '/knowledge-base',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MoodleDevelopmentRoute = MoodleDevelopmentRouteImport.update({
@@ -91,6 +121,11 @@ const TrustRoute = TrustRouteImport.update({
   path: '/trust',
   getParentRoute: () => rootRouteImport,
 } as any)
+const UpdatesRoute = UpdatesRouteImport.update({
+  id: '/updates',
+  path: '/updates',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutProcessRoute = AboutProcessRouteImport.update({
   id: '/process',
   path: '/process',
@@ -101,10 +136,38 @@ const AboutTechnologyRoute = AboutTechnologyRouteImport.update({
   path: '/technology',
   getParentRoute: () => AboutRoute,
 } as any)
+const ServicesServiceIdRoute = ServicesServiceIdRouteImport.update({
+  id: '/$serviceId',
+  path: '/$serviceId',
+  getParentRoute: () => ServicesRoute,
+} as any)
 const ServicesAiLearningRoute = ServicesAiLearningRouteImport.update({
   id: '/ai-learning',
   path: '/ai-learning',
   getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesMoodleConsultingRoute =
+  ServicesMoodleConsultingRouteImport.update({
+    id: '/moodle-consulting',
+    path: '/moodle-consulting',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesMoodleCustomizationRoute =
+  ServicesMoodleCustomizationRouteImport.update({
+    id: '/moodle-customization',
+    path: '/moodle-customization',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesMoodleImplementationRoute =
+  ServicesMoodleImplementationRouteImport.update({
+    id: '/moodle-implementation',
+    path: '/moodle-implementation',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const SolutionsSolutionIdRoute = SolutionsSolutionIdRouteImport.update({
+  id: '/$solutionId',
+  path: '/$solutionId',
+  getParentRoute: () => SolutionsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -116,14 +179,24 @@ export interface FileRoutesByFullPath {
   '/case-studies': typeof CaseStudiesRoute
   '/cbt': typeof CbtRoute
   '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
+  '/downloads': typeof DownloadsRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
+  '/knowledge-base': typeof KnowledgeBaseRoute
   '/moodle-development': typeof MoodleDevelopmentRoute
   '/services': typeof ServicesRouteWithChildren
-  '/solutions': typeof SolutionsRoute
+  '/solutions': typeof SolutionsRouteWithChildren
   '/trust': typeof TrustRoute
+  '/updates': typeof UpdatesRoute
   '/about/process': typeof AboutProcessRoute
   '/about/technology': typeof AboutTechnologyRoute
+  '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
+  '/services/moodle-consulting': typeof ServicesMoodleConsultingRoute
+  '/services/moodle-customization': typeof ServicesMoodleCustomizationRoute
+  '/services/moodle-implementation': typeof ServicesMoodleImplementationRoute
+  '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -134,14 +207,24 @@ export interface FileRoutesByTo {
   '/case-studies': typeof CaseStudiesRoute
   '/cbt': typeof CbtRoute
   '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
+  '/downloads': typeof DownloadsRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
+  '/knowledge-base': typeof KnowledgeBaseRoute
   '/moodle-development': typeof MoodleDevelopmentRoute
   '/services': typeof ServicesRouteWithChildren
-  '/solutions': typeof SolutionsRoute
+  '/solutions': typeof SolutionsRouteWithChildren
   '/trust': typeof TrustRoute
+  '/updates': typeof UpdatesRoute
   '/about/process': typeof AboutProcessRoute
   '/about/technology': typeof AboutTechnologyRoute
+  '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
+  '/services/moodle-consulting': typeof ServicesMoodleConsultingRoute
+  '/services/moodle-customization': typeof ServicesMoodleCustomizationRoute
+  '/services/moodle-implementation': typeof ServicesMoodleImplementationRoute
+  '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -153,14 +236,24 @@ export interface FileRoutesById {
   '/case-studies': typeof CaseStudiesRoute
   '/cbt': typeof CbtRoute
   '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
+  '/downloads': typeof DownloadsRoute
+  '/faq': typeof FaqRoute
   '/industries': typeof IndustriesRoute
+  '/knowledge-base': typeof KnowledgeBaseRoute
   '/moodle-development': typeof MoodleDevelopmentRoute
   '/services': typeof ServicesRouteWithChildren
-  '/solutions': typeof SolutionsRoute
+  '/solutions': typeof SolutionsRouteWithChildren
   '/trust': typeof TrustRoute
+  '/updates': typeof UpdatesRoute
   '/about/process': typeof AboutProcessRoute
   '/about/technology': typeof AboutTechnologyRoute
+  '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
+  '/services/moodle-consulting': typeof ServicesMoodleConsultingRoute
+  '/services/moodle-customization': typeof ServicesMoodleCustomizationRoute
+  '/services/moodle-implementation': typeof ServicesMoodleImplementationRoute
+  '/solutions/$solutionId': typeof SolutionsSolutionIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -173,14 +266,24 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/cbt'
     | '/contact'
+    | '/docs'
+    | '/downloads'
+    | '/faq'
     | '/industries'
+    | '/knowledge-base'
     | '/moodle-development'
     | '/services'
     | '/solutions'
     | '/trust'
+    | '/updates'
     | '/about/process'
     | '/about/technology'
+    | '/services/$serviceId'
     | '/services/ai-learning'
+    | '/services/moodle-consulting'
+    | '/services/moodle-customization'
+    | '/services/moodle-implementation'
+    | '/solutions/$solutionId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -191,14 +294,24 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/cbt'
     | '/contact'
+    | '/docs'
+    | '/downloads'
+    | '/faq'
     | '/industries'
+    | '/knowledge-base'
     | '/moodle-development'
     | '/services'
     | '/solutions'
     | '/trust'
+    | '/updates'
     | '/about/process'
     | '/about/technology'
+    | '/services/$serviceId'
     | '/services/ai-learning'
+    | '/services/moodle-consulting'
+    | '/services/moodle-customization'
+    | '/services/moodle-implementation'
+    | '/solutions/$solutionId'
   id:
     | '__root__'
     | '/'
@@ -209,14 +322,24 @@ export interface FileRouteTypes {
     | '/case-studies'
     | '/cbt'
     | '/contact'
+    | '/docs'
+    | '/downloads'
+    | '/faq'
     | '/industries'
+    | '/knowledge-base'
     | '/moodle-development'
     | '/services'
     | '/solutions'
     | '/trust'
+    | '/updates'
     | '/about/process'
     | '/about/technology'
+    | '/services/$serviceId'
     | '/services/ai-learning'
+    | '/services/moodle-consulting'
+    | '/services/moodle-customization'
+    | '/services/moodle-implementation'
+    | '/solutions/$solutionId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -228,11 +351,16 @@ export interface RootRouteChildren {
   CaseStudiesRoute: typeof CaseStudiesRoute
   CbtRoute: typeof CbtRoute
   ContactRoute: typeof ContactRoute
+  DocsRoute: typeof DocsRoute
+  DownloadsRoute: typeof DownloadsRoute
+  FaqRoute: typeof FaqRoute
   IndustriesRoute: typeof IndustriesRoute
+  KnowledgeBaseRoute: typeof KnowledgeBaseRoute
   MoodleDevelopmentRoute: typeof MoodleDevelopmentRoute
   ServicesRoute: typeof ServicesRouteWithChildren
-  SolutionsRoute: typeof SolutionsRoute
+  SolutionsRoute: typeof SolutionsRouteWithChildren
   TrustRoute: typeof TrustRoute
+  UpdatesRoute: typeof UpdatesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -293,11 +421,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/industries': {
       id: '/industries'
       path: '/industries'
       fullPath: '/industries'
       preLoaderRoute: typeof IndustriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge-base': {
+      id: '/knowledge-base'
+      path: '/knowledge-base'
+      fullPath: '/knowledge-base'
+      preLoaderRoute: typeof KnowledgeBaseRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/moodle-development': {
@@ -328,6 +484,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TrustRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/updates': {
+      id: '/updates'
+      path: '/updates'
+      fullPath: '/updates'
+      preLoaderRoute: typeof UpdatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about/process': {
       id: '/about/process'
       path: '/process'
@@ -342,12 +505,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutTechnologyRouteImport
       parentRoute: typeof AboutRoute
     }
+    '/services/$serviceId': {
+      id: '/services/$serviceId'
+      path: '/$serviceId'
+      fullPath: '/services/$serviceId'
+      preLoaderRoute: typeof ServicesServiceIdRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/ai-learning': {
       id: '/services/ai-learning'
       path: '/ai-learning'
       fullPath: '/services/ai-learning'
       preLoaderRoute: typeof ServicesAiLearningRouteImport
       parentRoute: typeof ServicesRoute
+    }
+    '/services/moodle-consulting': {
+      id: '/services/moodle-consulting'
+      path: '/moodle-consulting'
+      fullPath: '/services/moodle-consulting'
+      preLoaderRoute: typeof ServicesMoodleConsultingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/moodle-customization': {
+      id: '/services/moodle-customization'
+      path: '/moodle-customization'
+      fullPath: '/services/moodle-customization'
+      preLoaderRoute: typeof ServicesMoodleCustomizationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/moodle-implementation': {
+      id: '/services/moodle-implementation'
+      path: '/moodle-implementation'
+      fullPath: '/services/moodle-implementation'
+      preLoaderRoute: typeof ServicesMoodleImplementationRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/solutions/$solutionId': {
+      id: '/solutions/$solutionId'
+      path: '/$solutionId'
+      fullPath: '/solutions/$solutionId'
+      preLoaderRoute: typeof SolutionsSolutionIdRouteImport
+      parentRoute: typeof SolutionsRoute
     }
   }
 }
@@ -365,15 +563,35 @@ const AboutRouteChildren: AboutRouteChildren = {
 const AboutRouteWithChildren = AboutRoute._addFileChildren(AboutRouteChildren)
 
 interface ServicesRouteChildren {
+  ServicesServiceIdRoute: typeof ServicesServiceIdRoute
   ServicesAiLearningRoute: typeof ServicesAiLearningRoute
+  ServicesMoodleConsultingRoute: typeof ServicesMoodleConsultingRoute
+  ServicesMoodleCustomizationRoute: typeof ServicesMoodleCustomizationRoute
+  ServicesMoodleImplementationRoute: typeof ServicesMoodleImplementationRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesServiceIdRoute: ServicesServiceIdRoute,
   ServicesAiLearningRoute: ServicesAiLearningRoute,
+  ServicesMoodleConsultingRoute: ServicesMoodleConsultingRoute,
+  ServicesMoodleCustomizationRoute: ServicesMoodleCustomizationRoute,
+  ServicesMoodleImplementationRoute: ServicesMoodleImplementationRoute,
 }
 
 const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
   ServicesRouteChildren,
+)
+
+interface SolutionsRouteChildren {
+  SolutionsSolutionIdRoute: typeof SolutionsSolutionIdRoute
+}
+
+const SolutionsRouteChildren: SolutionsRouteChildren = {
+  SolutionsSolutionIdRoute: SolutionsSolutionIdRoute,
+}
+
+const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
+  SolutionsRouteChildren,
 )
 
 const rootRouteChildren: RootRouteChildren = {
@@ -385,11 +603,16 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesRoute: CaseStudiesRoute,
   CbtRoute: CbtRoute,
   ContactRoute: ContactRoute,
+  DocsRoute: DocsRoute,
+  DownloadsRoute: DownloadsRoute,
+  FaqRoute: FaqRoute,
   IndustriesRoute: IndustriesRoute,
+  KnowledgeBaseRoute: KnowledgeBaseRoute,
   MoodleDevelopmentRoute: MoodleDevelopmentRoute,
   ServicesRoute: ServicesRouteWithChildren,
-  SolutionsRoute: SolutionsRoute,
+  SolutionsRoute: SolutionsRouteWithChildren,
   TrustRoute: TrustRoute,
+  UpdatesRoute: UpdatesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

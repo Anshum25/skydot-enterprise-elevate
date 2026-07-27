@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, ArrowRight, CheckCircle2, Globe, Headphones, Linkedin, Instagram } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -35,7 +35,7 @@ const schema = z.object({
 const FAQ = [
   ["How quickly will you respond?", "Within one business day. For urgent enterprise requests, our on-call solution architect responds within 4 hours."],
   ["Do you sign NDAs?", "Yes — we sign mutual NDAs before any detailed discovery discussion."],
-  ["Where are your delivery hubs?", "Bengaluru (India), Dubai (UAE) and London (UK)."],
+  ["Where is your head office located?", "603, ZION Z1, Nr. Regenta Hotel, Ramdas Road, SindhuBhavan Road, Bodakdev, Ahmedabad, Gujarat - 380059."],
 ];
 
 function ContactPage() {
@@ -105,22 +105,43 @@ function ContactPage() {
 
           <div className="space-y-4">
             {[
-              { icon: Mail, label: "Sales & partnerships", value: "hello@skydotinfotech.com" },
-              { icon: Mail, label: "Technical support", value: "support@skydotinfotech.com" },
-              { icon: Phone, label: "Phone", value: "+91 80 4567 8900" },
-              { icon: MapPin, label: "Head office", value: "Level 12, Prestige Tower, Bengaluru — 560001" },
-              { icon: Clock, label: "Business hours", value: "Mon–Fri · 09:00–19:00 IST" },
+              { icon: MapPin, label: "Address", value: "603, ZION Z1, Nr. Regenta Hotel, Ramdas Road, SindhuBhavan Road, Bodakdev, Ahmedabad, Gujarat - 380059" },
+              { icon: Phone, label: "Sales", value: "(+91) 97144 90600" },
+              { icon: Headphones, label: "Support", value: "(+91) 97145 90600" },
+              { icon: Mail, label: "Email", value: "hello@nivasync.in" },
+              { icon: Globe, label: "Website", value: "www.nivasync.in" },
             ].map(c => (
               <Card key={c.label} className="p-5 border-border bg-card card-hover">
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-3.5">
                   <div className="grid size-10 place-items-center rounded-lg bg-primary/10 text-primary shrink-0"><c.icon className="size-4" /></div>
                   <div>
                     <div className="text-[11px] uppercase tracking-widest font-semibold text-muted-foreground">{c.label}</div>
-                    <div className="mt-1 text-sm text-heading font-medium">{c.value}</div>
+                    <div className="mt-1 text-sm text-heading font-medium leading-relaxed">{c.value}</div>
                   </div>
                 </div>
               </Card>
             ))}
+
+            <div className="flex items-center gap-3 pt-2">
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noreferrer"
+                className="grid size-11 place-items-center rounded-xl border border-border bg-card hover:border-primary hover:text-primary text-heading transition-all shadow-sm"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="size-5" />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                className="grid size-11 place-items-center rounded-xl border border-border bg-card hover:border-primary hover:text-primary text-heading transition-all shadow-sm"
+                aria-label="Instagram"
+              >
+                <Instagram className="size-5" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

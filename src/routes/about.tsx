@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useMatchRoute } from "@tanstack/react-router";
 import { PageHero, SectionHeader } from "@/components/section-header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,13 @@ const LEADERS = [
 ];
 
 function AboutPage() {
+  const matchRoute = useMatchRoute();
+  const isExact = matchRoute({ to: "/about", fuzzy: false });
+
+  if (!isExact) {
+    return <Outlet />;
+  }
+
   return (
     <div>
       <PageHero

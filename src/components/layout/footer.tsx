@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Github, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Twitter, Github, Youtube, Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 const cols = [
   {
@@ -54,9 +54,9 @@ export function Footer() {
           <div>
             <Link to="/" aria-label="Skydot Infotech home" className="inline-flex">
               <img
-                src="/Untitled.jpeg"
+                src="/logo.png"
                 alt="Skydot Infotech"
-                className="h-14 w-auto max-w-[220px] object-contain mix-blend-multiply dark:invert dark:mix-blend-screen"
+                className="h-14 w-auto max-w-[220px] object-contain dark:invert"
               />
             </Link>
             <p className="mt-5 max-w-md text-sm leading-relaxed">
@@ -64,12 +64,12 @@ export function Footer() {
               organizations — combining Moodle expertise, custom platform engineering and applied AI.
             </p>
             <div className="mt-6 space-y-2.5 text-sm">
-              <div className="flex items-center gap-2.5"><Mail className="size-4 text-primary" /> hello@skydotinfotech.com</div>
-              <div className="flex items-center gap-2.5"><Phone className="size-4 text-primary" /> +91 80 4567 8900</div>
-              <div className="flex items-center gap-2.5"><MapPin className="size-4 text-primary" /> Bengaluru · Dubai · London</div>
+              <div className="flex items-center gap-2.5"><Mail className="size-4 text-primary" /> hello@nivasync.in</div>
+              <div className="flex items-center gap-2.5"><Phone className="size-4 text-primary" /> (+91) 97144 90600</div>
+              <div className="flex items-center gap-2.5"><MapPin className="size-4 text-primary" /> Ahmedabad, Gujarat</div>
             </div>
             <div className="mt-6 flex gap-2">
-              {[Linkedin, Twitter, Github, Youtube].map((Icon, i) => (
+              {[Linkedin, Twitter, Instagram, Github, Youtube].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"

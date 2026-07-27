@@ -5,13 +5,12 @@ import { cn } from "@/lib/utils";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Services", hasMegaMenu: true },
   { label: "Solutions", hasMegaMenu: true },
   { label: "CBT Platform", href: "/cbt" },
   { label: "Resources", hasMegaMenu: true },
-  { label: "Company", hasMegaMenu: true },
   { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
 ];
 
 interface NavigationProps {

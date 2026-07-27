@@ -674,24 +674,93 @@ function HomePage() {
       {/* CTA */}
       <section className="section-y">
         <div className="container-page">
-          <div className="relative overflow-hidden rounded-xl border border-border bg-gradient-to-br from-primary to-[#1D4ED8] text-primary-foreground p-10 md:p-16 shadow-elevated">
-            <div className="absolute inset-0 grid-bg opacity-10" />
-            <div className="relative max-w-3xl">
-              <Eyebrow className="text-white/80">Ready when you are</Eyebrow>
-              <h2 className="mt-4 text-3xl md:text-5xl font-bold text-white leading-tight">
-                Let's design your enterprise learning platform.
-              </h2>
-              <p className="mt-5 text-white/85 text-lg max-w-2xl">
-                Book a 45-minute working session with our solution architects. We'll review your goals,
-                estate and constraints — and leave you with a concrete roadmap.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild size="lg" variant="secondary" className="bg-white text-primary hover:bg-white/90">
-                  <Link to="/contact">Book a working session <ArrowRight className="ml-2 size-4" /></Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/30 text-white bg-transparent hover:bg-white/10">
-                  <Link to="/case-studies">See what we've built <Users className="ml-2 size-4" /></Link>
-                </Button>
+          <div className="relative overflow-hidden rounded-2xl border border-orange-200/60 bg-gradient-to-br from-orange-50/90 via-white to-slate-50 p-8 sm:p-12 lg:p-16 text-heading shadow-elevated transition-colors duration-300 dark:border-white/10 dark:from-[#0B0F19] dark:via-[#111827] dark:to-[#0B0F19] dark:text-white dark:shadow-2xl">
+            {/* Ambient Background Glows */}
+            <div className="absolute -top-32 -left-32 size-96 rounded-full bg-primary/15 dark:bg-primary/25 blur-[120px] pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 size-96 rounded-full bg-blue-500/10 dark:bg-blue-600/15 blur-[120px] pointer-events-none" />
+            <div className="absolute inset-0 grid-bg opacity-[0.05] dark:opacity-[0.07] pointer-events-none" />
+
+            {/* 2-Column Grid Layout */}
+            <div className="relative z-10 grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:gap-16 items-center">
+              {/* Left Column: Hook & Actions */}
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary uppercase tracking-wider mb-6">
+                  <Sparkles className="size-3.5 animate-pulse" /> Ready when you are
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-heading dark:text-white leading-[1.15]">
+                  Let's design your <span className="bg-gradient-to-r from-primary to-orange-600 dark:from-orange-400 dark:to-amber-200 bg-clip-text text-transparent">enterprise learning platform.</span>
+                </h2>
+                <p className="mt-5 text-paragraph dark:text-slate-300 text-lg leading-relaxed max-w-xl">
+                  Book a 45-minute working session with our solution architects. We'll review your goals,
+                  estate and constraints — and leave you with a concrete roadmap.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-medium shadow-lg shadow-primary/25 px-8 h-12 text-base transition-all">
+                    <Link to="/contact" className="group inline-flex items-center">
+                      Book a working session <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="border border-border/80 bg-white/90 hover:bg-white text-heading shadow-sm dark:border-white/20 dark:bg-white/5 dark:hover:bg-white/10 dark:text-white dark:shadow-none font-medium px-7 h-12 text-base backdrop-blur-sm transition-all">
+                    <Link to="/case-studies" className="inline-flex items-center">
+                      See what we've built <Users className="ml-2 size-4 text-muted-foreground dark:text-slate-400" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+
+              {/* Right Column: Workshop Agenda Card */}
+              <div className="relative rounded-2xl border border-orange-200/60 bg-white/90 p-6 sm:p-8 backdrop-blur-xl shadow-xl dark:border-white/10 dark:bg-white/[0.03] dark:shadow-2xl transition-colors duration-300">
+                <div className="flex items-center justify-between border-b border-border/60 dark:border-white/10 pb-5 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="grid size-10 place-items-center rounded-xl bg-primary/10 border border-primary/20 text-primary dark:bg-primary/20 dark:border-primary/30">
+                      <Target className="size-5" />
+                    </div>
+                    <div>
+                      <div className="font-display font-bold text-heading dark:text-white text-base">45-Min Architecture Workshop</div>
+                      <div className="text-xs text-muted-foreground dark:text-slate-400">Zero sales theater · Technical alignment</div>
+                    </div>
+                  </div>
+                  <span className="rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-400">100% Free</span>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    {
+                      icon: Cpu,
+                      title: "Deep-Dive Estate Analysis",
+                      desc: "Review Moodle, LMS architecture & scalability bottlenecks."
+                    },
+                    {
+                      icon: Shield,
+                      title: "Security & Compliance Check",
+                      desc: "ISO 27001, data residency & governance mapping."
+                    },
+                    {
+                      icon: Zap,
+                      title: "Custom Engineering Roadmap",
+                      desc: "Concrete next steps for CBT, plugins & AI integration."
+                    }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-3.5 items-start">
+                      <div className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-lg bg-orange-50 border border-orange-200/60 text-heading dark:bg-white/5 dark:border-white/10 dark:text-slate-300">
+                        <item.icon className="size-4 text-primary" />
+                      </div>
+                      <div>
+                        <div className="text-sm font-semibold text-heading dark:text-white">{item.title}</div>
+                        <div className="text-xs text-muted-foreground dark:text-slate-400 leading-relaxed mt-0.5">{item.desc}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-5 border-t border-border/60 dark:border-white/10 flex items-center justify-between text-xs text-muted-foreground dark:text-slate-400">
+                  <div className="flex items-center gap-2 font-medium text-heading dark:text-slate-300">
+                    <CheckCircle2 className="size-4 text-primary" /> Deliverable: Custom Solution Blueprint
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1.5 text-muted-foreground dark:text-slate-400 text-xs">
+                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" /> Architects Available
+                  </div>
+                </div>
               </div>
             </div>
           </div>

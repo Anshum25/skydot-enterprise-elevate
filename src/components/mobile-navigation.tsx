@@ -12,7 +12,6 @@ interface MobileNavigationProps {
 
 const mobileNavItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Services", hasSubmenu: true, items: [
     { label: "Moodle Consulting", href: "/services/moodle-consulting" },
     { label: "Moodle Implementation", href: "/services/moodle-implementation" },
@@ -40,14 +39,8 @@ const mobileNavItems = [
     { label: "Knowledge Base", href: "/knowledge-base" },
     { label: "FAQs", href: "/faq" },
   ]},
-  { label: "Company", hasSubmenu: true, items: [
-    { label: "About", href: "/about" },
-    { label: "Why Skydot", href: "/about/why-skydot" },
-    { label: "Development Process", href: "/about/process" },
-    { label: "Technology Stack", href: "/about/technology" },
-    { label: "Careers", href: "/careers" },
-  ]},
   { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
 ];
 
 export function MobileNavigation({ open, onOpenChange }: MobileNavigationProps) {

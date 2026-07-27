@@ -41,11 +41,13 @@ export function SectionHeader({
 
 export function PageHero({
   eyebrow,
+  badge,
   title,
   description,
   children,
 }: {
   eyebrow?: string;
+  badge?: string;
   title: ReactNode;
   description?: ReactNode;
   children?: ReactNode;
@@ -55,7 +57,7 @@ export function PageHero({
       <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
       <div className="container-page relative py-20 md:py-28">
         <div className="max-w-3xl">
-          {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+          {(badge || eyebrow) && <Eyebrow>{badge || eyebrow}</Eyebrow>}
           <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight">
             {title}
           </h1>
