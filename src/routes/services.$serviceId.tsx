@@ -582,6 +582,9 @@ function ServiceDetailPage() {
                 <Sparkles className="size-3.5" />
                 <span>{data.eyebrow} · {data.badge}</span>
               </div>
+              <div className="mb-4 animate-fade-in delay-100">
+                <img src="/moodle_logo_TM.svg" alt="Moodle" className="h-8 sm:h-12 object-contain" />
+              </div>
               <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-heading tracking-tight leading-[1.15]">
                 {data.title}
               </h1>

@@ -75,6 +75,9 @@ function AiAnalyticsPage() {
         <div className="container-page relative z-10">
           <div className="max-w-3xl">
             <span className="eyebrow">AI-Powered Learning</span>
+            <div className="mb-4 mt-6 animate-fade-in delay-100">
+              <img src="/moodle_logo_TM.svg" alt="Moodle" className="h-8 sm:h-12 object-contain" />
+            </div>
             <h1 className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-heading">
               Making Enterprise Learning Smarter with Artificial Intelligence
             </h1>
