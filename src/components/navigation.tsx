@@ -7,7 +7,6 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Services", hasMegaMenu: true },
   { label: "Solutions", hasMegaMenu: true },
-  { label: "CBT Platform", href: "/cbt" },
   { label: "Resources", hasMegaMenu: true },
   { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },
@@ -68,7 +67,13 @@ export function Navigation({ className }: NavigationProps) {
           )}
 
           {item.hasMegaMenu && activeMenu === item.label && (
-            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-screen max-w-4xl">
+            <div 
+              className={cn(
+                "absolute top-full left-1/2 -translate-x-1/2 pt-2 w-screen",
+                item.label === "Services" ? "max-w-6xl" : "max-w-4xl"
+              )}
+              onClick={() => setActiveMenu(null)}
+            >
               <div className="bg-card border border-border rounded-lg shadow-lg p-6 animate-fade-in">
                 {item.label === "Services" && <ServicesMegaMenu />}
                 {item.label === "Solutions" && <SolutionsMegaMenu />}
@@ -85,7 +90,42 @@ export function Navigation({ className }: NavigationProps) {
 
 function ServicesMegaMenu() {
   return (
-    <div className="grid grid-cols-3 gap-8">
+    <div className="grid grid-cols-4 gap-8">
+      <div>
+        <h3 className="text-sm font-semibold text-primary mb-4">Moodle Products</h3>
+        <ul className="space-y-3">
+          <MegaMenuItem
+            icon="GraduationCap"
+            title="Moodle LMS"
+            description="Engage your learners with flexible, secure, and accessible online learning spaces."
+            href="/products/moodle-lms"
+          />
+          <MegaMenuItem
+            icon="Building"
+            title="Moodle Workplace"
+            description="Streamline training, onboarding, and compliance management."
+            href="/products/moodle-workplace"
+          />
+          <MegaMenuItem
+            icon="Globe"
+            title="MoodleCloud"
+            description="For individuals or small organisations with basic training needs."
+            href="/products/moodle-cloud"
+          />
+          <MegaMenuItem
+            icon="Smartphone"
+            title="Moodle App"
+            description="Access Moodle from anywhere, on any device online and offline."
+            href="/products/moodle-app"
+          />
+          <MegaMenuItem
+            icon="Puzzle"
+            title="Certified Integrations"
+            description="Extend your ecosystem with powerful and trusted add-ons."
+            href="/products/certified-integrations"
+          />
+        </ul>
+      </div>
       <div>
         <h3 className="text-sm font-semibold text-primary mb-4">Moodle Services</h3>
         <ul className="space-y-3">
@@ -203,64 +243,69 @@ function ServicesMegaMenu() {
 
 function SolutionsMegaMenu() {
   const industries = [
-    { name: "Education", icon: "GraduationCap", desc: "Universities & Schools", href: "/solutions/education" },
-    { name: "Corporate", icon: "Building", desc: "Enterprise LMS", href: "/solutions/corporate" },
-    { name: "Government", icon: "Building2", desc: "Public Sector", href: "/solutions/government" },
-    { name: "Healthcare", icon: "Heart", desc: "Medical Training", href: "/solutions/healthcare" },
-    { name: "Manufacturing", icon: "Factory", desc: "Industrial Training", href: "/solutions/manufacturing" },
-    { name: "Banking", icon: "Landmark", desc: "Financial Services", href: "/solutions/banking" },
-    { name: "Insurance", icon: "Shield", desc: "Risk Management", href: "/solutions/insurance" },
-    { name: "NGO", icon: "Globe", desc: "Non-Profit Organizations", href: "/solutions/ngo" },
-    { name: "Training Academy", icon: "BookOpen", desc: "Professional Training", href: "/solutions/training-academy" },
-    { name: "Employee Learning", icon: "Users", desc: "Workforce Development", href: "/solutions/employee-learning" },
+    { name: "Education", icon: "GraduationCap", desc: "Support every type of learner, undergraduate, continuing education, non-degree, and professional development, all within one LMS.", href: "/solutions/education" },
+    { name: "Workplace Learning", icon: "Building", desc: "Train and upskill your workforce with a suite of automation, reporting, and virtual learning tools that save time and drive results.", href: "/solutions/workplace-learning" },
+    { name: "Government", icon: "Landmark", desc: "Meet regulatory and compliance standards with a scalable and secure LMS for public sector and government agencies.", href: "/solutions/government" },
+    { name: "Vocational Training", icon: "Briefcase", desc: "Bring your vocational education and training courses online with Moodle LMS.", href: "/solutions/vocational-training" },
+    { name: "Moodle and AI", icon: "Brain", desc: "Learn about Moodle's human-centred approach to AI and our commitment to transparency, equality, and ethical practice.", href: "/solutions/moodle-and-ai" },
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-4">
-      {industries.map((industry) => (
-        <Link
-          key={industry.name}
-          to={industry.href as any}
-          className="flex items-start gap-3 p-3 rounded-md hover:bg-accent/50 transition-colors group"
-        >
-          <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-            <Icon name={industry.icon} className="h-5 w-5" />
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-heading group-hover:text-primary transition-colors">
-              {industry.name}
-            </h4>
-            <p className="text-xs text-muted-foreground">{industry.desc}</p>
-          </div>
-        </Link>
-      ))}
+    <div className="grid grid-cols-2 gap-8">
+      {industries.map((industry) => {
+        const isExternal = industry.href.startsWith('http');
+        const Component = isExternal ? 'a' : Link;
+        const props = isExternal ? { href: industry.href, target: "_blank", rel: "noopener noreferrer" } : { to: industry.href as any };
+        return (
+          <Component
+            key={industry.name}
+            {...props}
+            className="flex items-start gap-3 p-3 rounded-md hover:bg-accent/50 transition-colors group"
+          >
+            <div className="h-10 w-10 rounded-lg bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors flex-shrink-0">
+              <Icon name={industry.icon} className="h-5 w-5" />
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-heading group-hover:text-primary transition-colors">
+                {industry.name}
+              </h4>
+              <p className="text-xs text-muted-foreground mt-1">{industry.desc}</p>
+            </div>
+          </Component>
+        );
+      })}
     </div>
   );
 }
 
 function ResourcesMegaMenu() {
   const resources = [
-    { name: "Blog", href: "/blog", icon: "FileText" },
-    { name: "Case Studies", href: "/case-studies", icon: "Briefcase" },
-    { name: "Documentation", href: "/docs", icon: "Book" },
-    { name: "Knowledge Base", href: "/knowledge-base", icon: "Database" },
-    { name: "FAQs", href: "/faq", icon: "HelpCircle" },
-    { name: "Latest Updates", href: "/updates", icon: "Bell" },
-    { name: "Downloads", href: "/downloads", icon: "Download" },
+    { name: "Blog", href: "https://moodle.com/news/", icon: "FileText" },
+    { name: "Case Studies", href: "https://moodle.com/success-stories/", icon: "Briefcase" },
+    { name: "Documentation", href: "https://docs.moodle.org/", icon: "Book" },
+    { name: "Knowledge Base", href: "https://moodle.org/", icon: "Database" },
+    { name: "FAQs", href: "https://moodle.com/help/", icon: "HelpCircle" },
+    { name: "Latest Updates", href: "https://moodle.com/news/", icon: "Bell" },
+    { name: "Downloads", href: "https://download.moodle.org/", icon: "Download" },
   ];
 
   return (
     <div className="grid grid-cols-2 gap-2">
-      {resources.map((resource) => (
-        <Link
-          key={resource.name}
-          to={resource.href}
-          className="flex items-center gap-3 p-3 rounded-md hover:bg-accent/50 transition-colors"
-        >
-          <Icon name={resource.icon} className="h-5 w-5 text-primary" />
-          <span className="text-sm font-medium text-heading">{resource.name}</span>
-        </Link>
-      ))}
+      {resources.map((resource) => {
+        const isExternal = resource.href.startsWith('http');
+        const Component = isExternal ? 'a' : Link;
+        const props = isExternal ? { href: resource.href, target: "_blank", rel: "noopener noreferrer" } : { to: resource.href as any };
+        return (
+          <Component
+            key={resource.name}
+            {...props}
+            className="flex items-center gap-3 p-3 rounded-md hover:bg-accent/50 transition-colors"
+          >
+            <Icon name={resource.icon} className="h-5 w-5 text-primary" />
+            <span className="text-sm font-medium text-heading">{resource.name}</span>
+          </Component>
+        );
+      })}
     </div>
   );
 }
@@ -302,9 +347,13 @@ function MegaMenuItem({
   description: string;
   href: string;
 }) {
+  const isExternal = href.startsWith('http');
+  const Component = isExternal ? 'a' : Link;
+  const props = isExternal ? { href, target: "_blank", rel: "noopener noreferrer" } : { to: href };
+
   return (
-    <Link
-      to={href}
+    <Component
+      {...props}
       className="flex items-start gap-3 p-2 rounded-md hover:bg-accent/50 transition-colors group"
     >
       <div className="h-8 w-8 rounded bg-accent flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors flex-shrink-0">
@@ -316,7 +365,7 @@ function MegaMenuItem({
         </h4>
         <p className="text-xs text-muted-foreground">{description}</p>
       </div>
-    </Link>
+    </Component>
   );
 }
 
@@ -355,6 +404,8 @@ function Icon({ name, className }: { name: string; className?: string }) {
     Bell: <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>,
     Download: <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>,
     ArrowRight: <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>,
+    Smartphone: <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>,
+    Puzzle: <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" /></svg>,
   };
 
   return icons[name] || null;

@@ -29,6 +29,7 @@ import { Route as TrustRouteImport } from './routes/trust'
 import { Route as UpdatesRouteImport } from './routes/updates'
 import { Route as AboutProcessRouteImport } from './routes/about.process'
 import { Route as AboutTechnologyRouteImport } from './routes/about.technology'
+import { Route as ProductsProductIdRouteImport } from './routes/products.$productId'
 import { Route as ServicesServiceIdRouteImport } from './routes/services.$serviceId'
 import { Route as ServicesAiLearningRouteImport } from './routes/services.ai-learning'
 import { Route as ServicesMoodleConsultingRouteImport } from './routes/services.moodle-consulting'
@@ -136,6 +137,11 @@ const AboutTechnologyRoute = AboutTechnologyRouteImport.update({
   path: '/technology',
   getParentRoute: () => AboutRoute,
 } as any)
+const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
+  id: '/products/$productId',
+  path: '/products/$productId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesServiceIdRoute = ServicesServiceIdRouteImport.update({
   id: '/$serviceId',
   path: '/$serviceId',
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/updates': typeof UpdatesRoute
   '/about/process': typeof AboutProcessRoute
   '/about/technology': typeof AboutTechnologyRoute
+  '/products/$productId': typeof ProductsProductIdRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
   '/services/moodle-consulting': typeof ServicesMoodleConsultingRoute
@@ -219,6 +226,7 @@ export interface FileRoutesByTo {
   '/updates': typeof UpdatesRoute
   '/about/process': typeof AboutProcessRoute
   '/about/technology': typeof AboutTechnologyRoute
+  '/products/$productId': typeof ProductsProductIdRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
   '/services/moodle-consulting': typeof ServicesMoodleConsultingRoute
@@ -248,6 +256,7 @@ export interface FileRoutesById {
   '/updates': typeof UpdatesRoute
   '/about/process': typeof AboutProcessRoute
   '/about/technology': typeof AboutTechnologyRoute
+  '/products/$productId': typeof ProductsProductIdRoute
   '/services/$serviceId': typeof ServicesServiceIdRoute
   '/services/ai-learning': typeof ServicesAiLearningRoute
   '/services/moodle-consulting': typeof ServicesMoodleConsultingRoute
@@ -278,6 +287,7 @@ export interface FileRouteTypes {
     | '/updates'
     | '/about/process'
     | '/about/technology'
+    | '/products/$productId'
     | '/services/$serviceId'
     | '/services/ai-learning'
     | '/services/moodle-consulting'
@@ -306,6 +316,7 @@ export interface FileRouteTypes {
     | '/updates'
     | '/about/process'
     | '/about/technology'
+    | '/products/$productId'
     | '/services/$serviceId'
     | '/services/ai-learning'
     | '/services/moodle-consulting'
@@ -334,6 +345,7 @@ export interface FileRouteTypes {
     | '/updates'
     | '/about/process'
     | '/about/technology'
+    | '/products/$productId'
     | '/services/$serviceId'
     | '/services/ai-learning'
     | '/services/moodle-consulting'
@@ -361,6 +373,7 @@ export interface RootRouteChildren {
   SolutionsRoute: typeof SolutionsRouteWithChildren
   TrustRoute: typeof TrustRoute
   UpdatesRoute: typeof UpdatesRoute
+  ProductsProductIdRoute: typeof ProductsProductIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -505,6 +518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutTechnologyRouteImport
       parentRoute: typeof AboutRoute
     }
+    '/products/$productId': {
+      id: '/products/$productId'
+      path: '/products/$productId'
+      fullPath: '/products/$productId'
+      preLoaderRoute: typeof ProductsProductIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/$serviceId': {
       id: '/services/$serviceId'
       path: '/$serviceId'
@@ -613,6 +633,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolutionsRoute: SolutionsRouteWithChildren,
   TrustRoute: TrustRoute,
   UpdatesRoute: UpdatesRoute,
+  ProductsProductIdRoute: ProductsProductIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

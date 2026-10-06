@@ -22,22 +22,25 @@ const mobileNavItems = [
     { label: "AI Learning", href: "/ai-services" },
     { label: "Learning Analytics", href: "/services/learning-analytics" },
     { label: "ERP Integration", href: "/services/erp-integration" },
+    { label: "Moodle LMS", href: "/products/moodle-lms" },
+    { label: "Moodle Workplace", href: "/products/moodle-workplace" },
+    { label: "MoodleCloud", href: "/products/moodle-cloud" },
+    { label: "Moodle App", href: "/products/moodle-app" },
+    { label: "Certified Integrations", href: "/products/certified-integrations" },
   ]},
   { label: "Solutions", hasSubmenu: true, items: [
     { label: "Education", href: "/solutions/education" },
-    { label: "Corporate", href: "/solutions/corporate" },
+    { label: "Workplace Learning", href: "/solutions/workplace-learning" },
     { label: "Government", href: "/solutions/government" },
-    { label: "Healthcare", href: "/solutions/healthcare" },
-    { label: "Manufacturing", href: "/solutions/manufacturing" },
-    { label: "Banking", href: "/solutions/banking" },
+    { label: "Vocational Training", href: "/solutions/vocational-training" },
+    { label: "Moodle and AI", href: "/solutions/moodle-and-ai" },
   ]},
-  { label: "CBT Platform", href: "/cbt" },
   { label: "Resources", hasSubmenu: true, items: [
-    { label: "Blog", href: "/blog" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Documentation", href: "/docs" },
-    { label: "Knowledge Base", href: "/knowledge-base" },
-    { label: "FAQs", href: "/faq" },
+    { label: "Blog", href: "https://moodle.com/news/" },
+    { label: "Case Studies", href: "https://moodle.com/success-stories/" },
+    { label: "Documentation", href: "https://docs.moodle.org/" },
+    { label: "Knowledge Base", href: "https://moodle.org/" },
+    { label: "FAQs", href: "https://moodle.com/help/" },
   ]},
   { label: "Contact", href: "/contact" },
   { label: "About", href: "/about" },
@@ -111,16 +114,22 @@ export function MobileNavigation({ open, onOpenChange }: MobileNavigationProps) 
                         </button>
                         {expandedMenus.has(item.label) && (
                           <div className="mt-2 ml-4 space-y-1 animate-fade-in">
-                            {item.items?.map((subItem) => (
-                              <Link
-                                key={subItem.label}
-                                to={subItem.href as any}
-                                onClick={() => onOpenChange(false)}
-                                className="block p-3 rounded-lg hover:bg-accent/50 transition-colors text-base text-paragraph hover:text-primary"
-                              >
-                                {subItem.label}
-                              </Link>
-                            ))}
+                            {item.items?.map((subItem) => {
+                              const isExternal = subItem.href.startsWith('http');
+                              const Component = isExternal ? 'a' : Link;
+                              const props = isExternal ? { href: subItem.href, target: "_blank", rel: "noopener noreferrer" } : { to: subItem.href as any };
+                              
+                              return (
+                                <Component
+                                  key={subItem.label}
+                                  {...props}
+                                  onClick={() => onOpenChange(false)}
+                                  className="block p-3 rounded-lg hover:bg-accent/50 transition-colors text-base text-paragraph hover:text-primary"
+                                >
+                                  {subItem.label}
+                                </Component>
+                              );
+                            })}
                           </div>
                         )}
                       </div>

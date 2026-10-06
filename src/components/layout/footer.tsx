@@ -16,7 +16,6 @@ const cols = [
   {
     title: "Products",
     links: [
-      ["CBT Platform", "/cbt"],
       ["AI Tutor", "/ai-services"],
       ["Learning Analytics", "/ai-services"],
       ["AI Proctoring", "/cbt"],
@@ -26,12 +25,11 @@ const cols = [
   {
     title: "Solutions",
     links: [
-      ["Universities", "/solutions"],
-      ["Government", "/solutions"],
-      ["Corporate Learning", "/solutions"],
-      ["Healthcare", "/solutions"],
-      ["Banking", "/solutions"],
-      ["Manufacturing", "/solutions"],
+      ["Education", "/solutions/education"],
+      ["Workplace Learning", "/solutions/workplace-learning"],
+      ["Government", "/solutions/government"],
+      ["Vocational Training", "/solutions/vocational-training"],
+      ["Moodle and AI", "/solutions/moodle-and-ai"],
     ],
   },
   {
