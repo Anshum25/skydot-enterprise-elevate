@@ -15,7 +15,8 @@ export function Hero({ className }: HeroProps) {
           {/* Left Side - Content */}
           <div className="space-y-8">
             {/* Eyebrow */}
-            <div className="inline-flex">
+            <div className="inline-flex items-center gap-3">
+              <img src="/moodle_logo_TM.svg" alt="Moodle" className="h-8 w-auto" />
               <span className="px-4 py-1.5 rounded-full bg-accent text-primary text-sm font-semibold">
                 Enterprise Moodle Services
               </span>
